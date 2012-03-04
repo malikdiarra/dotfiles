@@ -1,0 +1,69 @@
+" Chargement de Pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+""PEP8 Module
+"Activating automatic indent
+set autoindent
+"Redefining tabs
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
+"Astivating automatic filetype discovery
+filetype on
+filetype plugin indent on
+"Maximum line length
+set textwidth=79
+"Activating syntax coloring
+syntax on
+
+"" ShortCuts
+execute 'source ' . $HOME . '/.vim/shortkeys.vim'
+
+""Completion
+"Activating completion for python
+au FileType python set omnifunc=pythoncomplete#Complete
+"Activating completion for javascript
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"Activating completion for html
+au FileType html set omnifunc=htmlcomplete#CompleteTags
+"Activating completion for css
+au FileType css set omnifunc=csscomplete#CompleteCSS
+
+"Defining completion for supertab
+let g:SuperTabDefaultCompletionType = "context"
+
+"Activation documentation vizualisation"
+set completeopt=menuone,longest,preview
+
+"Completion for Django
+function! SetAutoDjangoCompletion()
+    let l:tmpPath = split($PWD, '/')
+    let l:djangoVar = tmpPath[len(tmpPath-1)].'.settings'
+    let $DJANGO_SETTINGS_MODULE=djangoVar
+    echo 'Activating completion with : ' . djangoVar
+    return 1
+endfunction
+
+"Completion for virtualenv
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    acivate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+"Activating Django snippets for html and python
+autocmd FileType python set ft=python.django
+autocmd FileType html set ft=htmldjango.html
+
+"Activating fugitive status bar
+set laststatus=2
+set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+
+

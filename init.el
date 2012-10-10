@@ -2,21 +2,22 @@
 
 (require 'cl)
 
-;; -- ADDITIONAL MODULES --
-;; jdee
-;(add-to-list 'load-path (expand-file-name "~/emacs/site/jdee/lisp"))
-;(add-to-list 'load-path (expand-file-name "~/emacs/site/cedet/common"))
-;(load-file (expand-file-name "~/emacs/site/cedet/common/cedet.el"))
-;(add-to-list 'load-path (expand-file-name "~/emacs/site/elib"))
-;; workaround
-;(setq warning-suppress-types nil) 
+;Marmalade
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
 
-;(require 'jde)
-;;pony-mode
+; Packages to install
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
-(add-to-list 'load-path "~/emacs/pony-mode/")
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings clojure-mode pony-mode yasnippet)
+  "A list of packages to ensure are insalled at launch")
 
-(require 'pony-mode)
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 ;; -- BINDS SECTION --
 

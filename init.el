@@ -12,12 +12,27 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings clojure-mode pony-mode yasnippet)
+(defvar my-packages
+  '(starter-kit
+    starter-kit-lisp
+    starter-kit-bindings
+    clojure-mode
+    pony-mode
+    yasnippet
+    magit)
   "A list of packages to ensure are insalled at launch")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;; Yasnippet configuration
+
+(setq yas-snippet-dirs
+      '("~/.emacs.d/elpa/yasnippet-0.8.0/snippets/"
+        "~/.emacs.d/elpa/pony-mode-0.2/snippets/"
+        "~/.emacs.d/snippets/"))
+(yas-global-mode 1)
 
 ;; -- BINDS SECTION --
 

@@ -19,12 +19,14 @@
     clojure-mode
     pony-mode
     yasnippet
-    magit)
+    magit
+    markdown)
   "A list of packages to ensure are insalled at launch")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
 
 ;; Yasnippet configuration
 

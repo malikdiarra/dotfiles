@@ -20,7 +20,7 @@
     pony-mode
     yasnippet
     magit
-    markdown)
+    markdown-mode)
   "A list of packages to ensure are insalled at launch")
 
 (dolist (p my-packages)

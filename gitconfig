@@ -3,3 +3,8 @@
 	email = malik.diarra@gmail.com
 [alias]
 	ss = status -s
+	ci = commit
+	co = checkout
+	df = diff
+	lg = log --oneline
+	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"	

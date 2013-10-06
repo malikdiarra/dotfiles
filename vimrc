@@ -1,3 +1,8 @@
+" Pathogen
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " Basic configuration
 
 set hlsearch
@@ -23,7 +28,7 @@ set wildmode=longest,list
 set wildmenu
 " Color
 
-:set t_Co=256
+":set t_Co=256
 :set background=dark
 
 :hi Cursorline cterm=NONE ctermbg=darkgrey guibg=darkgrey
@@ -41,7 +46,7 @@ map <leader>e :edit %%
 
 augroup vimrcEx
   autocmd!
-  autocmd FileType text setlocal textwidht=78
+  autocmd FileType text setlocal textwidth=78
   
   autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -51,6 +56,7 @@ augroup vimrcEx
   autocmd FileType python set sw=4 sts=4 et
   
   autocmd BufRead *.md set ai formatoptions=tcroqn2 comments=n:&gt;
+  autocmd BufRead *.md setfiletype mkd
 augroup END
 
 " Deactivating arrown keys

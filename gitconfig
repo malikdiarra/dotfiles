@@ -16,3 +16,5 @@
     branch = always
     diff = always
     interactive = always
+[core]
+	excludesfile = ~/.gitignore

@@ -8,17 +8,22 @@
 	df = diff
 	lg = log --oneline
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"	
-        l = "!bash -c 'source ~/.githelpers && pretty_git_log'"
-    di = diff
-    dc = diff --cached
-    amend = commit --amend
-    ua = reset HEAD
+  l = "!bash -c 'source ~/.githelpers && pretty_git_log'"
+  di = diff
+  dc = diff --cached
+  amend = commit --amend
+  ua = reset HEAD
 
 [color]
-    ui = always
-    status = always
-    branch = always
-    diff = always
-    interactive = always
+  ui = always
+  status = always
+  branch = always
+  diff = always
+  interactive = always
+
 [core]
 	excludesfile = ~/.gitignore
+  editor = vim
+
+[diff]
+  mnemonicprefix = true

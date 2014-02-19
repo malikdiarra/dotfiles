@@ -64,6 +64,11 @@ map <Left> :echo "No!"<cr>
 map <Down> :echo "No!"<cr>
 map <Right> :echo "No!"<cr>
 map <Up> :echo "No!"<cr>
+map <leader>j <C-W>j
+map <leader>h <C-W>h
+map <leader>k <C-W>k
+map <leader>l <C-W>l
+
 
 " Custom function
 

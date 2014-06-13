@@ -11,6 +11,8 @@ set bs=2
 
 set showcmd
 
+set hidden
+
 syntax on
 
 filetype plugin indent on 

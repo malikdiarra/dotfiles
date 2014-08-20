@@ -138,3 +138,12 @@ proml
 
 alias ..='cd ..'
 alias ...='cd ../..'
+
+activate_virtualenv(){
+  if [ -f env/bin/activate ]; then source env/bin/activate
+  fi
+}
+
+create_virtualenv(){
+  python -m virtualenv env --no-site-packages
+}

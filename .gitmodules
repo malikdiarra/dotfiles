@@ -1,8 +1,8 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
@@ -10,9 +10,6 @@
 [submodule "vim/bundle/pydoc"]
 	path = vim/bundle/pydoc
 	url = https://github.com/fs111/pydoc.vim.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git

@@ -1,51 +1,52 @@
 " Pathogen
-
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+"
 " Basic configuration
+"
 
-set hlsearch
+" highlight search result
+set hlsearch 
 
+
+" setting the tab size and automatically expand all inserted tabs
 set bs=2
-
-set showcmd
-
-set hidden
-
-syntax on
-
-filetype plugin indent on 
-
 set sts=2 sw=2 ts=2
-
+set showcmd
 set expandtab
 
+" allowing hidden buffer
+set hidden
+
+" syntax highlighting
+syntax on
+
+" enabling filetype detection
+filetype plugin indent on 
+
+" highlight the line of the cursor
 set cursorline
+
+" show the line on the left side of the screen
 set number
 
 " autocompletion menus
-"
 set wildmode=longest,list
 set wildmenu
+
 " Color
-
-":set t_Co=256
 :set background=dark
-
 :hi Cursorline cterm=NONE ctermbg=darkgrey guibg=darkgrey
 
 "  setting leader to comma
-
 let mapleader=","
 
 " opening file in current file directory
-
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
 " Custom autocommands
-
 augroup vimrcEx
   autocmd!
   autocmd FileType text setlocal textwidth=78
@@ -66,14 +67,14 @@ map <Left> :echo "No!"<cr>
 map <Down> :echo "No!"<cr>
 map <Right> :echo "No!"<cr>
 map <Up> :echo "No!"<cr>
+
+" Mapping ,<motion> to window change action
 map <leader>j <C-W>j
 map <leader>h <C-W>h
 map <leader>k <C-W>k
 map <leader>l <C-W>l
 
-
 " Custom function
-
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'), 'file')
@@ -97,5 +98,4 @@ function! RunTestFile(...)
     endif
     exec '!nosetests ' . test_file
 endfunction
-
 

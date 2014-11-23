@@ -105,3 +105,6 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\(\s\+$\)\|\(\($\n\s*\)\+\%$\)/
 let &colorcolumn=join(range(81,999),",")
+
+" Shortcuts
+inoremap <c-u> <esc>bgUwgi

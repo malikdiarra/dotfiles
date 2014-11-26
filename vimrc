@@ -8,7 +8,7 @@ filetype on
 "
 
 " highlight search result
-set hlsearch 
+set hlsearch
 
 
 " setting the tab size and automatically expand all inserted tabs
@@ -24,7 +24,7 @@ set hidden
 syntax on
 
 " enabling filetype detection
-filetype plugin indent on 
+filetype plugin indent on
 
 " highlight the line of the cursor
 set cursorline
@@ -51,14 +51,14 @@ map <leader>e :edit %%
 augroup vimrcEx
   autocmd!
   autocmd FileType text setlocal textwidth=78
-  
+
   autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
 
   autocmd FileType python set sw=4 sts=4 et
-  
+
   autocmd BufRead *.md set ai formatoptions=tcroqn2 comments=n:&gt;
   autocmd BufRead *.md setfiletype mkd
 augroup END
@@ -101,10 +101,11 @@ function! RunTestFile(...)
 endfunction
 
 " Highlighting trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=None guibg=green
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\(\s\+$\)\|\(\($\n\s*\)\+\%$\)/
-let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=darkgrey guibg=#2c2d27
+let &colorcolumn="80,".join(range(120,999),",")
 
 " Shortcuts
 inoremap <c-u> <esc>bgUwgi

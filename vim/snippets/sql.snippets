@@ -1,0 +1,23 @@
+snippet createtable
+	CREATE TABLE ${1:table_name}
+	(
+	)
+
+snippet pkdef
+	CONSTRAINT PK_${1:table_name} PRIMARY KEY (${2:column_list})
+
+snippet fkdef
+	CONSTRAINT FK_${1:table_name}_{$2:column_name} FOREIGN KEY (${3:column_list}) REFERENCES ${4:referenced_table}(${5:referenced_column})
+
+snippet select
+	SELECT
+		${1:columns}
+	FROM ${2:table}
+
+snippet ijoin
+	INNER JOIN ${1:table_name}
+	ON ${2:first_col} = ${3:other_col}
+
+snippet ljoin
+	LEFT JOIN ${1:table_name}
+	ON ${2:first_col} = ${3:other_col}

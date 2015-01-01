@@ -109,3 +109,5 @@ let &colorcolumn="80,".join(range(120,999),",")
 
 " Shortcuts
 inoremap <c-u> <esc>bgUwgi
+nnoremap <leader>ve :split $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>

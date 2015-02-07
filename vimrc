@@ -101,7 +101,7 @@ function! RunTestFile(...)
 endfunction
 
 " Highlighting trailing whitespace
-highlight ExtraWhitespace ctermbg=None guibg=green
+highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\(\s\+$\)\|\(\($\n\s*\)\+\%$\)/
 highlight ColorColumn ctermbg=darkgrey guibg=#2c2d27

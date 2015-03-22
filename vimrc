@@ -4,12 +4,13 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype on
 
-" Basic configuration
-"
+" Basic configuration {{{
+
+"  setting leader to comma
+let mapleader=","
 
 " highlight search result
 set hlsearch
-
 
 " setting the tab size and automatically expand all inserted tabs
 set bs=2
@@ -26,28 +27,22 @@ syntax on
 " enabling filetype detection
 filetype plugin indent on
 
+" autocompletion menus
+set wildmode=longest,list
+set wildmenu
+set wildignore=*.o,*.pyc,*~
+"}}}
+
+" Display setup {{{
 " highlight the line of the cursor
 set cursorline
 
 " show the line on the left side of the screen
 set number
 
-" autocompletion menus
-set wildmode=longest,list
-set wildmenu
+"}}}
 
-" Color
-:set background=dark
-:hi Cursorline cterm=NONE ctermbg=darkgrey guibg=darkgrey
-
-"  setting leader to comma
-let mapleader=","
-
-" opening file in current file directory
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-
-" Custom autocommands
+" Custom autocommands {{{
 augroup vimrcEx
   autocmd!
   autocmd FileType text setlocal textwidth=78
@@ -67,6 +62,28 @@ augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
+"}}}
+
+" Status Line ----------------------------------------------{{{
+set laststatus=2
+set statusline=%t       "tail of the filename
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=%y      "filetype
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
+" }}}
+
+" General Shortcuts {{{
+" opening file in current file directory
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+
 
 " Deactivating arrown keys
 map <Left> :echo "No!"<cr>
@@ -80,7 +97,13 @@ map <leader>h <C-W>h
 map <leader>k <C-W>k
 map <leader>l <C-W>l
 
-" Custom function
+inoremap <c-u> <esc>bgUwgi
+nnoremap <leader>ve :split $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+" }}}
+
+"{{{ Custom functions
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'), 'file')
@@ -90,29 +113,16 @@ function! RenameFile()
     redraw!
   endif
 endfunction
+"}}}
 
-" Testing commands
-map <leader>t :call RunTestFile()<cr>
-
-function! RunTestFile(...)
-    let f = expand("%:p:r")
-    let in_test_file = match(f, 'test$') != 1
-    if in_test_file
-        let test_file = expand("%")
-    else
-        let test_file = f . '_test.py'
-    endif
-    exec '!nosetests ' . test_file
-endfunction
+"{{{ Color
+:set background=dark
+:hi Cursorline cterm=NONE ctermbg=darkgrey guibg=darkgrey
 
 " Highlighting trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\(\s\+$\)\|\(\($\n\s*\)\+\%$\)/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ColorColumn ctermbg=darkgrey guibg=#2c2d27
 let &colorcolumn="80,".join(range(120,999),",")
-
-" Shortcuts
-inoremap <c-u> <esc>bgUwgi
-nnoremap <leader>ve :split $MYVIMRC<cr>
-nnoremap <leader>vs :source $MYVIMRC<cr>
+"}}}

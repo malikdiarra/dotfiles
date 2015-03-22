@@ -63,6 +63,11 @@ augroup vimrcEx
   autocmd BufRead *.md setfiletype mkd
 augroup END
 
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
 " Deactivating arrown keys
 map <Left> :echo "No!"<cr>
 map <Down> :echo "No!"<cr>

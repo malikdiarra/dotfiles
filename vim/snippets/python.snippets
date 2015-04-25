@@ -2,19 +2,18 @@
 snippet setup
 	#!/usr/bin/env python
 
-	from distutils.core import setup
-	
+	from setuptools import setup, find_packages
+
 	setup(name="${1:package_name}",
 	      version="0.1",
 	      description="${2:description}",
 	      author="Malik Diarra",
 	      author_email="malik.diarra@gmail.com",
-	      packages=["${3:package}"],
+	      packages=find_packages(), # other option is ['package_name']
 	      url="http://www.mbzdr.com",
 	      license="BSD",
 	      classifiers = ['Development Status :: 4 - Beta', ],
-	      requires = [],
-	      install_requires = [])
+	      install_requires = []) # ["some_package>='1.3.4','other_package=1,>=2,!=2.1']
 
 snippet dj_detail_view
 	def detail_${1:model}(request, ${2:pk}):
@@ -49,7 +48,7 @@ snippet dj_mod
 									n = request.POST["next"]
 							else:
 									n = $1.get_absolute_url()
-							return HttpResponseRedirect(n) 
+							return HttpResponseRedirect(n)
 					elif "delete" in request.POST:
 							$1.delete()
 							return HttpResponseRedirect(request.POST["next"])

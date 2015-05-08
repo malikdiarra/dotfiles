@@ -127,3 +127,5 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ColorColumn ctermbg=darkgrey guibg=#2c2d27
 let &colorcolumn="80,".join(range(120,999),",")
 "}}}
+
+:source ~/.vim/django.vim

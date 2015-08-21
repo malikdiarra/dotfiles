@@ -63,5 +63,3 @@ autocmd FileType html set ft=htmldjango.html
 "Activating fugitive status bar
 set laststatus=2
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
-
-

@@ -18,6 +18,10 @@ set sts=2 sw=2 ts=2
 set showcmd
 set expandtab
 
+" Splitting switch window
+set splitbelow
+set splitright
+
 " allowing hidden buffer
 set hidden
 

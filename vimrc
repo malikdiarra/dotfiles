@@ -71,6 +71,13 @@ augroup END
 
 " Resize splits when window is resized
 au VimResized * :wincmd =
+
+" Cursor line is only shown in normal mode / current window
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
 "}}}
 
 " Status Line ----------------------------------------------{{{

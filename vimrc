@@ -34,7 +34,8 @@ filetype plugin indent on
 " autocompletion menus
 set wildmode=longest,list
 set wildmenu
-set wildignore=*.o,*.pyc,*~
+set wildignore+=*.o,*.pyc
+set wildignore+=*.sw?
 "}}}
 
 " Display setup {{{

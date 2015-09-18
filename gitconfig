@@ -8,7 +8,7 @@
 	df = diff
 	lg = log --oneline
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"	
-  l = "!bash -c 'source ~/.githelpers && pretty_git_log'"
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   di = diff
   dc = diff --cached
   amend = commit --amend

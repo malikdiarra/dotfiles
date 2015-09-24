@@ -11,7 +11,7 @@
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   di = diff
   dc = diff --cached
-  amend = commit --amend
+  amend = commit --amend --no-edit
   ua = reset HEAD
   pullff = pull --ff-only
 

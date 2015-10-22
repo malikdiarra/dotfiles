@@ -114,22 +114,8 @@ map <leader>k <C-W>k
 map <leader>l <C-W>l
 
 inoremap <c-u> <esc>bgUwgi
-nnoremap <leader>ve :split $MYVIMRC<cr>
-nnoremap <leader>vs :source $MYVIMRC<cr>
 
 " }}}
-
-"{{{ Custom functions
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-"}}}
 
 "{{{ Color
 :set background=dark

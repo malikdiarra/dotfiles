@@ -119,6 +119,9 @@ inoremap <c-u> <esc>bgUwgi
 nnoremap s :w<cr>
 nnoremap :w<cr> :echo "No!"<cr>
 
+" Keep cursor at the same place when joining lines
+nnoremap J mzJ`z
+
 " }}}
 
 "{{{ Color

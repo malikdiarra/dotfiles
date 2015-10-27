@@ -115,6 +115,10 @@ map <leader>l <C-W>l
 
 inoremap <c-u> <esc>bgUwgi
 
+" Save
+nnoremap s :w<cr>
+nnoremap :w<cr> :echo "No!"<cr>
+
 " }}}
 
 "{{{ Color

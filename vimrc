@@ -122,6 +122,7 @@ nnoremap :w<cr> :echo "No!"<cr>
 " Keep cursor at the same place when joining lines
 nnoremap J mzJ`z
 
+nmap gV `[v`]
 " }}}
 
 "{{{ Color

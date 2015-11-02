@@ -98,7 +98,7 @@ set statusline+=\ %P    "percent through file
 " General Shortcuts {{{
 " opening file in current file directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
+map <leader>ee :edit %%
 
 
 " Deactivating arrown keys

@@ -118,6 +118,7 @@ inoremap <c-u> <esc>bgUwgi
 " Save
 nnoremap s :w<cr>
 nnoremap :w<cr> :echo "No!"<cr>
+nnoremap :wq<cr> :echo "No! use ZZ"<cr>
 
 " Keep cursor at the same place when joining lines
 nnoremap J mzJ`z

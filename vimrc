@@ -142,6 +142,9 @@ nnoremap :wq<cr> :echo "No! use ZZ"<cr>
 " Keep cursor at the same place when joining lines
 nnoremap J mzJ`z
 
+" Split line
+nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+
 " Clipboard paste
 nnoremap <leader>p "*p
 nnoremap <leader>P "*P

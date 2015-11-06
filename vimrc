@@ -38,6 +38,25 @@ set wildignore+=*.o,*.pyc
 set wildignore+=*.sw?
 "}}}
 
+" Backups {{{
+set backup
+set undodir=~/.vim-tmp/undo/
+set backupdir=~/.vim-tmp/backup/
+set directory=~/.vim-tmp/swap/
+set backupskip=/tmp/*,/private/tmp/*
+
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
+
+" }}}
+
 " Display setup {{{
 " highlight the line of the cursor
 set cursorline

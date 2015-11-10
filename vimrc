@@ -118,6 +118,8 @@ set statusline+=\ %P    "percent through file
 " opening file in current file directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>ee :edit %%
+map <leader>ev :edit $MYVIMRC<cr>
+map <leader>et :edit ~/journal.md<cr>
 
 
 " Deactivating arrown keys

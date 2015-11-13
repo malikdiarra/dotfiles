@@ -152,6 +152,11 @@ nnoremap <leader>p "*p
 nnoremap <leader>P "*P
 
 nmap gV `[v`]
+
+" Move visual blocks
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " }}}
 
 "{{{ Color

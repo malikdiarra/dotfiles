@@ -163,6 +163,10 @@ noremap gk k
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" Insert blank line
+nnoremap <cr> o<esc>
+nnoremap <s-cr> O<esc>
+
 " }}}
 
 "{{{ Color

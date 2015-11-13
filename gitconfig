@@ -4,6 +4,7 @@
 [alias]
 	ss = status -s
 	ci = commit
+	cm = commit -m
 	co = checkout
 	df = diff
 	lg = log --oneline

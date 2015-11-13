@@ -153,6 +153,12 @@ nnoremap <leader>P "*P
 
 nmap gV `[v`]
 
+" Correccting up and down navigation
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
 " Move visual blocks
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv

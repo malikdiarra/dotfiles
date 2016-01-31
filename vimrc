@@ -196,4 +196,6 @@ let g:ctrlp_user_command = {
   \ }
 " }}}
 
+let g:jsx_ext_required = 0
+
 :source ~/.vim/django.vim

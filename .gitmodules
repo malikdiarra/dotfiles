@@ -34,3 +34,9 @@
 [submodule "vim/bundle/vim-mako"]
 	path = vim/bundle/vim-mako
 	url = https://github.com/sophacles/vim-bundle-mako.git
+[submodule "vim/bundle/vim-jsx"]
+	path = vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git

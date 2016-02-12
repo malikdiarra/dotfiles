@@ -2,6 +2,8 @@
 nnoremap <buffer> K kmzjddkP`zk
 nnoremap <buffer> J jmzkddp`zj
 
+nnoremap T gg}k
+
 " Change action on the current line
 nnoremap s mz^cwsquash<esc>`z
 nnoremap f mz^cwfixup<esc>`z

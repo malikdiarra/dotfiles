@@ -196,6 +196,13 @@ let g:ctrlp_user_command = {
   \ }
 " }}}
 
+" Showing invisible {{{
+set list
+set listchars=tab:▸\ ,eol:¬
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+" }}}
+
 let g:jsx_ext_required = 0
 
 :source ~/.vim/django.vim

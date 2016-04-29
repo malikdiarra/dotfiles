@@ -1,8 +1,10 @@
 [user]
   name = Malik Diarra
   email = malik.diarra@gmail.com
+
 [commit]
   template = ~/.dotfiles/git_commit_msg.txt
+
 [alias]
   ss = status -s
   ci = commit
@@ -34,5 +36,6 @@
 
 [diff]
   mnemonicprefix = true
+
 [push]
   default = simple

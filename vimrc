@@ -149,7 +149,9 @@ nnoremap J mzJ`z
 " Split line
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
-" Clipboard paste
+" Clipboard yank and paste
+vnoremap <leader>y "*y
+nnoremap <leader>y "*y
 nnoremap <leader>p "*p
 nnoremap <leader>P "*P
 

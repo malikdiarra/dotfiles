@@ -81,6 +81,7 @@ augroup vimrcEx
 
   autocmd BufRead *.md set ai formatoptions=tcroqn2 comments=n:&gt;
   autocmd BufRead *.md setfiletype mkd
+  autocmd BufRead *.gradle setfiletype groovy
 augroup END
 
 augroup filetype_vim

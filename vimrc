@@ -82,6 +82,7 @@ augroup vimrcEx
   autocmd BufRead *.md set ai formatoptions=tcroqn2 comments=n:&gt;
   autocmd BufRead *.md setfiletype mkd
   autocmd BufRead *.gradle setfiletype groovy
+  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 augroup END
 
 augroup filetype_vim

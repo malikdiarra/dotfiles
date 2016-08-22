@@ -28,6 +28,9 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
+! setting term name to rxvt.
+! I experience strange errors when ssh to remote host without it: less and vim complaining about terminal not being functional, line wrapping not working.
+URxvt*termName: rxvt
 
 ! rofi
 rofi.color-enabled: true

@@ -206,5 +206,6 @@ highlight SpecialKey guifg=#4a4a59
 " }}}
 
 let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['standard']
 
 :source ~/.vim/django.vim

@@ -19,8 +19,8 @@
   branches = branch -a
   tags = tag
   stashes = stash list
-  fixup = !selecta_fixup
-  squash = !selecta_squash
+  fixup = !git_fixup
+  squash = !git_squash
 
 [color]
   ui = always

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+selector() {
+  fzf
+}
+
+commit_msg() {
+  git log --oneline --no-color $@ | selector | cut -d' ' -f2-
+}

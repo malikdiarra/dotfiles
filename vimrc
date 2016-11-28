@@ -69,7 +69,6 @@ set number
 " Custom autocommands {{{
 augroup vimrcEx
   autocmd!
-  autocmd FileType text setlocal textwidth=78
 
   autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |

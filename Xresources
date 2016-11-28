@@ -38,6 +38,7 @@ rofi.color-normal: #000000, #ffffff, #000000, #000000, #9575cd
 rofi.color-urgent: #000000, #ffffff, #000000, #000000, #9575cd
 rofi.color-active: #000000, #ffffff, #000000, #000000, #9575cd
 rofi.color-window: #000000, #ffffff
+rofi.fullscreen: true
 rofi.lines: 3
 rofi.fixed-num-lines: 3
 rofi.eh: 2

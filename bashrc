@@ -145,5 +145,5 @@ activate_virtualenv(){
 }
 
 create_virtualenv(){
-  python -m virtualenv env --no-site-packages
+  python3 -m venv env && source env/bin/activate
 }

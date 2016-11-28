@@ -151,3 +151,7 @@ create_virtualenv(){
 folder_size() {
   du -h --summarize $@
 }
+
+if [ -d ~/bin ]; then
+  export PATH=$PATH:~/bin
+fi

@@ -1,6 +1,5 @@
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=16
 URxvt*scrollBar:                      false
-URxvt*background:                     #000000
 URxvt*foreground:                     #ffffff
 URxvt*cursorColor:                    #d6d6d6
 URxvt*color0:                         #151718
@@ -19,6 +18,8 @@ URxvt*color12:                        #55b5db
 URxvt*color13:                        #a074c4
 URxvt*color14:                        #55dbbe
 URxvt*color15:                        #ffffff
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
 
 ! Selecting content copy it to clipboard
 URxvt*perl-ext-common: selection-to-clipboard

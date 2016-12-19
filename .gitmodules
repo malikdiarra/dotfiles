@@ -43,3 +43,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/limelight"]
+	path = vim/bundle/limelight
+	url = https://github.com/junegunn/limelight.vim.git

@@ -16,7 +16,7 @@
   uncommit = reset --mixed HEAD~
   discard = checkout --
   precommit = diff --cached --diff-algorithm=minimal -w
-  branches = branch -a
+  branches = branch -a --sort=-authordate
   tags = tag
   stashes = stash list
   fixup = !git_fixup

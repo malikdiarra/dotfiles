@@ -34,17 +34,16 @@ URxvt*termName: rxvt
 
 ! rofi
 rofi.color-enabled: true
-rofi.color-normal: #000000, #ffffff, #000000, #000000, #9575cd
-rofi.color-urgent: #000000, #ffffff, #000000, #000000, #9575cd
-rofi.color-active: #000000, #ffffff, #000000, #000000, #9575cd
-rofi.color-window: #000000, #ffffff
+rofi.color-normal: argb:00000000, argb:ffffffff, argb:00000000, argb:00000000, argb:ff9575cd
+rofi.color-urgent: argb:00000000, argb:ffffffff, argb:00000000, argb:00000000, argb:ff9575cd
+rofi.color-active: argb:00000000, argb:ffffffff, argb:00000000, argb:00000000, argb:ff9575cd
+rofi.color-window: argb:a0000000, argb:ffffffff
 rofi.fullscreen: true
 rofi.lines: 3
 rofi.fixed-num-lines: 3
 rofi.eh: 2
 rofi.width: 100
 rofi.padding: 80
-rofi.opacity: 85
 rofi.bw: 0
 rofi.separator-style: none
 rofi.hide-scrollbar: true

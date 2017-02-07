@@ -19,6 +19,7 @@
   branches = branch -a --sort=-authordate
   tags = tag
   stashes = stash list
+  collapse = !GIT_SEQUENCE_EDITOR=: git rebase -i
   fixup = !git_fixup
   squash = !git_squash
 

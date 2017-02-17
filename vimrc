@@ -207,14 +207,9 @@ highlight SpecialKey guifg=#4a4a59
 
 let g:jsx_ext_required = 0
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['flake8']
-
 function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
-
-let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
 let g:pydoc_cmd = 'python -m pydoc'
 :source ~/.vim/django.vim

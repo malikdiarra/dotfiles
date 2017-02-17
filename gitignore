@@ -3,3 +3,5 @@
 *.egg-info
 *.swo
 *.o
+.ensime
+.ensime_cache

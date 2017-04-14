@@ -216,5 +216,7 @@ function! StrTrim(txt)
 endfunction
 
 let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+let g:dbext_default_profile_pg = 'type=PGSQL:dbname=malik'
+let g:dbext_default_profile_mySQLServer = 'type=SQLSRV:integratedlogin=1:dbname=myDB'
 
 :source ~/.vim/django.vim

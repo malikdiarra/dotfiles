@@ -216,4 +216,5 @@ endfunction
 
 let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
+let g:pydoc_cmd = 'python -m pydoc'
 :source ~/.vim/django.vim

@@ -41,3 +41,5 @@
 
 [rebase]
   autoSquash = true
+[github]
+	user = malikdiarra

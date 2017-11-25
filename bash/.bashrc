@@ -161,3 +161,7 @@ for f in ~/.bashrc.d/*.bashrc; do
     source "$f"
   fi
 done
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/home/malik/anaconda3/bin:$PATH"
+. /home/malik/anaconda3/etc/profile.d/conda.sh

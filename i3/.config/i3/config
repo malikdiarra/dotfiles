@@ -104,8 +104,9 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+u exec "dm-tool switch-to-greeter"
-bindsym $mod+Shift+w exec "/home/mdx/bin/random_wall.sh"
-bindsym $mod+Shift+s exec "/home/mdx/bin/clean_wall.sh"
+bindsym $mod+Shift+w exec "~/bin/wallpaper_ipc random"
+bindsym $mod+Shift+f exec "~/bin/choose_wallpaper_folder"
+bindsym $mod+Shift+s exec "~/bin/clean_wall.sh"
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
@@ -114,12 +115,6 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -155,3 +150,4 @@ exec_always compton -f
 exec $termcmd
 exec $termcmd
 exec --no-startup-id nm-applet
+exec_always "wallpaper_server"

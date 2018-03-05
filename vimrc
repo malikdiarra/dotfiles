@@ -213,3 +213,5 @@ endfunction
 
 let g:pydoc_cmd = 'python -m pydoc'
 :source ~/.vim/django.vim
+
+nnoremap <bs> <c-^>

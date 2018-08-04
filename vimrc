@@ -9,8 +9,9 @@ filetype on
 "  setting leader to comma
 let mapleader=","
 
-" highlight search result
+" highlight search result and show them incrementally
 set hlsearch
+set incsearch
 
 " setting the tab size and automatically expand all inserted tabs
 set bs=2

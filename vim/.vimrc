@@ -10,7 +10,6 @@ filetype on
 let mapleader=","
 
 " highlight search result and show them incrementally
-set hlsearch
 set incsearch
 
 " setting the tab size and automatically expand all inserted tabs
@@ -227,3 +226,10 @@ let g:ale_fixers = {
 \}
 let b:ale_python_flake8_executable = '/home/malik/anaconda3/bin/flake8'
 let b:ale_python_flake8_use_global = 1
+
+" allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>``

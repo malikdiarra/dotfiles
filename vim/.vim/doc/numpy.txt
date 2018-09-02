@@ -1,0 +1,9 @@
+*numpy-construction*
+
+ * array: Convert input data (list, tuple, array, or other sequence type)              to an ndarray either by inferring a dtype or explicitly              specifying a dtype; copies the input data by default
+ * asarray: Convert input to ndarray, but do not copy if the input is already an ndarray
+ * arange: Like the built-in range but returns an ndarray instead of a list
+ * ones, ones_like: Produce an array of all 1s with the given shape and dtype;              ones_like takes another array and produces a ones array of the same shape and dtype
+ * zeros, zeros_like: Like ones and ones_like but producing arrays of 0s insteadempty, empty_likeCreate new arrays by allocating new memory, but do not populate with              any values like ones and zeros
+ * full, full_like: Produce an array of the given shape and dtype with all values set to the indicated “fill value” full_like takes another array and produces a filled array of the same shape and dtype
+ * eye, identity: Create a square N × N identity matrix (1s on the diagonal and 0s elsewhere)

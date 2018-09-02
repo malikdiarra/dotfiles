@@ -215,3 +215,7 @@ let g:pydoc_cmd = 'python -m pydoc'
 :source ~/.vim/django.vim
 
 nnoremap <bs> <c-^>
+
+" ale shortcuts
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)

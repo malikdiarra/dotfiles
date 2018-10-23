@@ -165,3 +165,6 @@ done
 # added by Anaconda3 4.4.0 installer
 export PATH="/home/malik/anaconda3/bin:$PATH"
 . /home/malik/anaconda3/etc/profile.d/conda.sh
+
+# activate git completion
+source /usr/share/git/completion/git-completion.bash

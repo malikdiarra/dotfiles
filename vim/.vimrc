@@ -225,3 +225,5 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
 \}
+let b:ale_python_flake8_executable = '/home/malik/anaconda3/bin/flake8'
+let b:ale_python_flake8_use_global = 1

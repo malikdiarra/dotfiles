@@ -11,4 +11,6 @@ commit_msg() {
   git log --oneline --no-color $@ | selector | cut -d' ' -f2-
 }
 
-git commit -m "squash! $(commit_msg)"
+msg="squash! $(commit_msg)"
+
+git commit -m msg

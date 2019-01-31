@@ -1,0 +1,10 @@
+requirements:
+stow
+ctags
+conda
+fzf
+i3
+i3blocks
+feh
+compton
+rofi

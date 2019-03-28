@@ -43,3 +43,5 @@
   autoSquash = true
 [github]
 	user = malikdiarra
+[merge]
+	conflictstyle = diff3

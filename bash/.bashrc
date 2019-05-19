@@ -162,9 +162,17 @@ for f in ~/.bashrc.d/*.bashrc; do
   fi
 done
 
-# added by Anaconda3 4.4.0 installer
-export PATH="/home/malik/anaconda3/bin:$PATH"
-. /home/malik/anaconda3/etc/profile.d/conda.sh
-
-# activate git completion
-source /usr/share/git/completion/git-completion.bash
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/malik/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/malik/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/malik/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/malik/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

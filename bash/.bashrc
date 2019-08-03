@@ -155,3 +155,9 @@ folder_size() {
 if [ -d ~/bin ]; then
   export PATH=$PATH:~/bin
 fi
+
+for f in ~/.bashrc.d/*.bashrc; do
+  if test -f "$f"; then
+    source "$f"
+  fi
+done

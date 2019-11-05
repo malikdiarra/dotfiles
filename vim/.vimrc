@@ -233,3 +233,8 @@ cnoremap $T <CR>:T''<CR>
 cnoremap $m <CR>:m''<CR>
 cnoremap $M <CR>:M''<CR>
 cnoremap $d <CR>:d<CR>``
+
+let g:pythonthreedll = '/usr/lib/libpython3.so'
+let g:pythondll = '/usr/lib/libpython3.so'
+let g:pythonhome = '/usr/lib/python2.7/'
+let g:pythonthreehome = '/usr/lib/python3.7/'

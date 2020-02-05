@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+set -e
+set -o pipefail
+
+
 selector() {
   fzf --reverse --no-sort
 }
@@ -7,4 +11,5 @@ commit_msg() {
   git log --oneline --no-color $@ | selector | cut -d' ' -f2-
 }
 
-git commit -m "fixup! $(commit_msg)"
+msg="fixup! $(commit_msg)"
+git commit -m $msg

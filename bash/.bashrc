@@ -176,3 +176,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+if [ -n ${ADDITIONAL_PS1} ]
+then
+  PS1="${ADDITIONAL_PS1} $PS1"
+fi

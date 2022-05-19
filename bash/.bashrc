@@ -145,6 +145,8 @@ if [ -d ~/bin ]; then
   export PATH=$PATH:~/bin
 fi
 
+alias append-file="vim '+normal Go'"
+
 for f in ~/.bashrc.d/*.bashrc; do
   if test -f "$f"; then
     source "$f"

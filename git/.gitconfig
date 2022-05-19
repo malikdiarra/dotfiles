@@ -21,6 +21,8 @@
   stashes = stash list
   fixup = !git_fixup
   squash = !git_squash
+  show-files = diff-tree --no-commit-id --name-only -r
+  reapply = !GIT_EDITOR=/usr/bin/true git rebase -i
 
 [color]
   ui = always

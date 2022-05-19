@@ -10,6 +10,8 @@ nnoremap f mz^cwfixup<esc>`z
 nnoremap p mz^cwpick<esc>`z
 nnoremap e mz^cwedit<esc>`z
 nnoremap r mz^cwreword<esc>`z
+nnoremap d mz^cwdrop<esc>`z
+nnoremap b mz^cwbreak<esc>`z
 
 " Deactivate default rebase keybinds (defined in
 " /usr/share/vim/vim74/ftplugin/gitrebase.vim)

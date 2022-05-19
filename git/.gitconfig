@@ -37,6 +37,7 @@
 
 [diff]
   mnemonicprefix = true
+	tool = vimdiff
 
 [push]
   default = simple
@@ -47,7 +48,10 @@
 	user = malikdiarra
 [merge]
 	conflictstyle = diff3
+	tool = vimdiff
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
+[difftool]
+	prompt = false

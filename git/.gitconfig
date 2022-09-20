@@ -37,7 +37,7 @@
 
 [diff]
   mnemonicprefix = true
-	tool = vimdiff
+  tool = vimdiff
 
 [push]
   default = simple
@@ -45,13 +45,13 @@
 [rebase]
   autoSquash = true
 [github]
-	user = malikdiarra
+  user = malikdiarra
 [merge]
-	conflictstyle = diff3
-	tool = vimdiff
+  conflictstyle = diff3
+  tool = vimdiff
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [difftool]
-	prompt = false
+  prompt = false

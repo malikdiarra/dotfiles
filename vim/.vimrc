@@ -84,6 +84,8 @@ augroup vimrcEx
   autocmd BufRead *.md setfiletype mkd
   autocmd BufRead *.gradle setfiletype groovy
   autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+  " remove all trailing whitespaces before saving
+  autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
 augroup filetype_vim

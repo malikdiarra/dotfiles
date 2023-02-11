@@ -51,6 +51,7 @@
   tool = vimdiff
 [url "git@github.com:"]
   insteadOf = https://github.com/
+  insteadOf = http://www.github.com/
 [init]
   defaultBranch = main
 [difftool]

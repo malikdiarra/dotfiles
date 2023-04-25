@@ -1,3 +1,10 @@
+call plug#begin()
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+  Plug 'github/copilot.vim'
+  Plug 'tpope/vim-fugitive'
+call plug#end()
+
 " Basic configuration {{{
 
 "  setting leader to comma

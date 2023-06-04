@@ -4,6 +4,7 @@ call plug#begin()
   Plug 'github/copilot.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
+  Plug 'mattn/emmet-vim'
   Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'}
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'

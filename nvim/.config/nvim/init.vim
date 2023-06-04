@@ -5,6 +5,7 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
   Plug 'mattn/emmet-vim'
+  Plug 'rebelot/kanagawa.nvim'
   Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'}
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
@@ -193,7 +194,7 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ColorColumn ctermbg=darkgrey guibg=#2c2d27
 let &colorcolumn="80,".join(range(120,999),",")
 set termguicolors
-colorschem NeoSolarized
+colorschem kanagawa
 "}}}
 
 " Ctrl-P configuration {{{

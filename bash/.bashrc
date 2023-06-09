@@ -107,7 +107,7 @@ export EDITOR=vim
 
 #Setting custom prompt
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(GIT:\1)/'
 }
 
 function proml {
@@ -129,7 +129,8 @@ function proml {
 
 PS1="${TITLEBAR}\
 $BLUE[$RED\$(date +%H:%M)$BLUE]\
-$BLUE[$RED\u@\h:\W$GREEN\$(parse_git_branch)$BLUE]\
+$BLUE[$RED\u@\h:\W$GREEN\$(parse_git_branch)\
+(K8S:\$(kubectl config current-context))$BLUE]\
 $GREEN\$$LIGHT_GRAY "
 PS2='> '
 PS4='+ '

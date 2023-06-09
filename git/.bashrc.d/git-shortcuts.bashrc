@@ -1,3 +1,4 @@
+# vim: set filetype=sh:
 # GIT heart FZF
 # -------------
 # Taken from https://junegunn.kr/2016/07/fzf-git

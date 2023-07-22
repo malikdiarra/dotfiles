@@ -3,6 +3,9 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
   Plug 'github/copilot.vim'
   Plug 'tpope/vim-fugitive'
+  Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'}
+  Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " Basic configuration {{{
@@ -234,3 +237,5 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+lua require "plugins.lsp"

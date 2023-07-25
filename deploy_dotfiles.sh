@@ -6,3 +6,4 @@ stow --no-folding bash
 stow --no-folding Xresources
 stow --no-folding git
 stow --no-folding i3
+stow --no-folding tmux

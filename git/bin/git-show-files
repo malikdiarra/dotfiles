@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Usage: git-show-files <commit>
+# Example: git-show-files 1234abcd
+#
+# This script is useful for getting a list of files changed in a commit.
+
+commit=$1
+if [ -z "${commit}" ]
+then
+  commit="HEAD";
+fi
+
+git diff-tree --no-commit-id --name-only -r "$commit"

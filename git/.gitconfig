@@ -22,8 +22,10 @@
 	stashes = stash list
 	fixup = !git_fixup
 	squash = !git_squash
-	show-files = diff-tree --no-commit-id --name-only -r
+	show-files = !git-show-files
 	reapply = !GIT_EDITOR=/usr/bin/true git rebase -i
+	undo = reset HEAD^ --
+	rename-branch = branch -m
 
 [color]
 	ui = always

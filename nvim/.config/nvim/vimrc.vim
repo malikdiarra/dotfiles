@@ -9,6 +9,7 @@ call plug#begin()
   Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'}
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
+  Plug 'fatih/vim-go'
 call plug#end()
 
 " Custom autocommands {{{
@@ -32,6 +33,8 @@ augroup vimrcEx
   autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
   " remove all trailing whitespaces before saving
   autocmd BufWritePre * :%s/\s\+$//e
+
+  autocmd FileType go autocmd BufWritePre <buffer> GoFmt
 augroup END
 
 augroup filetype_vim

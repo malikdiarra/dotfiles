@@ -235,6 +235,7 @@ let g:ale_fixers = {
 set modeline
 
 " Telescope configuration
+nnoremap <leader>fj <cmd>Telescope git_files<cr>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>

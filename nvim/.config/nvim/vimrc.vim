@@ -11,38 +11,6 @@ call plug#begin()
   Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
-" Basic configuration {{{
-
-" highlight search result and show them incrementally
-set hlsearch
-set incsearch
-
-" setting the tab size and automatically expand all inserted tabs
-set bs=2
-set sts=2 sw=2 ts=2
-set showcmd
-set expandtab
-
-" Splitting switch window
-set splitbelow
-set splitright
-
-" allowing hidden buffer
-set hidden
-
-" syntax highlighting
-syntax on
-
-" enabling filetype detection
-filetype plugin indent on
-
-" autocompletion menus
-set wildmode=longest,list
-set wildmenu
-set wildignore+=*.o,*.pyc
-set wildignore+=*.sw?
-"}}}
-
 " Backups {{{
 set backup
 set undodir=~/.vim-tmp/undo/

@@ -13,9 +13,6 @@ call plug#end()
 
 " Basic configuration {{{
 
-"  setting leader to comma
-let mapleader=","
-
 " highlight search result and show them incrementally
 set hlsearch
 set incsearch

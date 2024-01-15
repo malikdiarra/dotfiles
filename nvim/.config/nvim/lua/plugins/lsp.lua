@@ -27,6 +27,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", {noremap = true, silent = true, buffer = bufnr})
 
   vim.keymap.set("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", {noremap = true, silent = true, buffer = bufnr})
+
+  vim.keymap.set("n", "<leader>bf", "<cmd>lua vim.lsp.buf.format()<CR>", {noremap = true, silent = true, buffer = bufnr})
 end
 
 vim.lsp.set_log_level('debug')

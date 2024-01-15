@@ -46,3 +46,20 @@ vim.cmd [[highlight NonText guifg=#4a4a59]]
 vim.cmd [[highlight SpecialKey guifg=#4a4a59]]
 
 vim.cmd.source(vimrc)
+
+-- diff mode keybinds
+if vim.diff then
+  vim.opt.diffopt = vim.opt.diffopt + 'vertical'
+  vim.keymap.set('n', '<leader>1', ':diffget 1<CR>', {noremap = true, silent = true})
+  vim.keymap.set('n', '<leader>2', ':diffget 2<CR>', {noremap = true, silent = true})
+  vim.keymap.set('n', '<leader>3', ':diffget 3<CR>', {noremap = true, silent = true})
+
+  vim.keymap.set('n', '<leader>u', ':diffupdate<CR>', {noremap = true, silent = true})
+
+  -- exit with error
+  vim.keymap.set('n', '<leader>q', ':cq<CR>', {noremap = true, silent = true})
+
+  -- navigate diffs
+  vim.keymap.set('n', '<leader>i', ':cp<CR>', {noremap = true, silent = true})
+  vim.keymap.set('n', '<leader>k', ':cn<CR>', {noremap = true, silent = true})
+end

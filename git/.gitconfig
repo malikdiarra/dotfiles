@@ -48,7 +48,7 @@
   user = malikdiarra
 [merge]
   conflictstyle = diff3
-  tool = vimdiff
+  tool = nvimdiff
 [url "git@github.com:"]
   insteadOf = https://github.com/
   insteadOf = http://www.github.com/

@@ -39,4 +39,10 @@ vim.opt.number = true
 -- Activate modeline: commands at the top or bottom of a file
 vim.opt.modeline = true
 
+-- Show invisible characters
+vim.opt.list = true
+vim.opt.listchars = 'tab:▸ ,eol:¬,trail:·,extends:❯,precedes:❮'
+vim.cmd [[highlight NonText guifg=#4a4a59]]
+vim.cmd [[highlight SpecialKey guifg=#4a4a59]]
+
 vim.cmd.source(vimrc)

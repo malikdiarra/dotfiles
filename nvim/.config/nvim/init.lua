@@ -45,6 +45,26 @@ vim.opt.listchars = 'tab:▸ ,eol:¬,trail:·,extends:❯,precedes:❮'
 vim.cmd [[highlight NonText guifg=#4a4a59]]
 vim.cmd [[highlight SpecialKey guifg=#4a4a59]]
 
+-- Back up set up
+vim.opt.backup = true
+local backupdir = vim.fn.expand('~/.vim-tmp/backup/')
+local undodir = vim.fn.expand('~/.vim-tmp/undo/')
+local swapdir = vim.fn.expand('~/.vim-tmp/swap/')
+vim.opt.backupdir = backupdir
+vim.opt.backupskip = '/tmp/*,/private/tmp/*'
+vim.opt.undodir = undodir
+vim.opt.directory = swapdir
+
+if vim.fn.isdirectory(backupdir) == 0 then
+  vim.fn.mkdir(backupdir, 'p')
+end
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, 'p')
+end
+if vim.fn.isdirectory(swapdir) == 0 then
+  vim.fn.mkdir(swapdir, 'p')
+end
+
 vim.cmd.source(vimrc)
 
 -- diff mode keybinds

@@ -179,8 +179,6 @@ endfunction
 
 nnoremap <bs> <c-^>
 
-set modeline
-
 " Telescope configuration
 nnoremap <leader>fj <cmd>Telescope git_files<cr>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>

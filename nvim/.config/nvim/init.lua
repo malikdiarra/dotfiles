@@ -36,4 +36,7 @@ vim.opt.wildignore = vim.opt.wildignore + '*.o,*.pyc,*.sw?'
 vim.opt.cursorline = true
 vim.opt.number = true
 
+-- Activate modeline: commands at the top or bottom of a file
+vim.opt.modeline = true
+
 vim.cmd.source(vimrc)

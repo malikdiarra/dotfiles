@@ -32,4 +32,8 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = 'longest,list'
 vim.opt.wildignore = vim.opt.wildignore + '*.o,*.pyc,*.sw?'
 
+-- Display setup
+vim.opt.cursorline = true
+vim.opt.number = true
+
 vim.cmd.source(vimrc)

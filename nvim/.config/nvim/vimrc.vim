@@ -30,15 +30,6 @@ endif
 
 " }}}
 
-" Display setup {{{
-" highlight the line of the cursor
-set cursorline
-
-" show the line on the left side of the screen
-set number
-
-"}}}
-
 " Custom autocommands {{{
 augroup vimrcEx
   autocmd!

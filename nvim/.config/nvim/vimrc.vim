@@ -24,6 +24,7 @@ augroup vimrcEx
   autocmd FileType javascript set sw=2 sts=2 et
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType go setlocal noet ts=4 sw=4 sts=4
+  autocmd FileType gitconfig setlocal noet ts=4 sw=4 sts=4
 
   autocmd BufRead *.md set ai formatoptions=tcroqn2 comments=n:&gt;
   autocmd BufRead *.md setfiletype mkd

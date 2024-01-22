@@ -1,58 +1,58 @@
 [user]
-  name = Malik Diarra
-  email = malik.diarra@gmail.com
+	name = Malik Diarra
+	email = malik.diarra@gmail.com
 
 [commit]
-  template = ~/.dotfiles/git_commit_msg.txt
+	template = ~/.dotfiles/git_commit_msg.txt
 
 [alias]
-  ss = status -s
-  cm = commit -m
-  co = checkout
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  di = diff
-  amend = commit --amend --no-edit
-  unstage = reset -q HEAD --
-  uncommit = reset --mixed HEAD~
-  discard = checkout --
-  precommit = diff --cached --diff-algorithm=minimal -w
-  branches = branch --sort=-authordate
-  tags = tag
-  stashes = stash list
-  fixup = !git_fixup
-  squash = !git_squash
-  show-files = diff-tree --no-commit-id --name-only -r
-  reapply = !GIT_EDITOR=/usr/bin/true git rebase -i
+	ss = status -s
+	cm = commit -m
+	co = checkout
+	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	di = diff
+	amend = commit --amend --no-edit
+	unstage = reset -q HEAD --
+	uncommit = reset --mixed HEAD~
+	discard = checkout --
+	precommit = diff --cached --diff-algorithm=minimal -w
+	branches = branch --sort=-authordate
+	tags = tag
+	stashes = stash list
+	fixup = !git_fixup
+	squash = !git_squash
+	show-files = diff-tree --no-commit-id --name-only -r
+	reapply = !GIT_EDITOR=/usr/bin/true git rebase -i
 
 [color]
-  ui = always
-  status = always
-  branch = always
-  diff = always
-  interactive = always
+	ui = always
+	status = always
+	branch = always
+	diff = always
+	interactive = always
 
 [core]
-  excludesfile = ~/.gitignore
-  editor = vim
+	excludesfile = ~/.gitignore
+	editor = vim
 
 [diff]
-  mnemonicprefix = true
-  tool = vimdiff
+	mnemonicprefix = true
+	tool = vimdiff
 
 [push]
-  default = simple
+	default = simple
 
 [rebase]
-  autoSquash = true
+	autoSquash = true
 [github]
-  user = malikdiarra
+	user = malikdiarra
 [merge]
-  conflictstyle = diff3
-  tool = nvimdiff
+	conflictstyle = diff3
+	tool = nvimdiff
 [url "git@github.com:"]
-  insteadOf = https://github.com/
-  insteadOf = http://www.github.com/
+	insteadOf = https://github.com/
+	insteadOf = http://www.github.com/
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [difftool]
-  prompt = false
+	prompt = false

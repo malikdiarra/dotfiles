@@ -136,18 +136,6 @@ PS4='+ '
 }
 proml
 
-alias ..='cd ..'
-alias ...='cd ../..'
-
-activate_virtualenv(){
-  if [ -f env/bin/activate ]; then source env/bin/activate
-  fi
-}
-
-create_virtualenv(){
-  python3 -m venv env && source env/bin/activate
-}
-
 folder_size() {
   du -h --summarize $@
 }
@@ -161,21 +149,6 @@ for f in ~/.bashrc.d/*.bashrc; do
     source "$f"
   fi
 done
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/malik/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/malik/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/malik/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/malik/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 if [ -n ${ADDITIONAL_PS1} ]
 then

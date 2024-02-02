@@ -1,5 +1,17 @@
 local vimrc = vim.fn.stdpath('config') .. '/vimrc.vim'
 
+require('packer').startup(function(use)
+  use {
+  "folke/which-key.nvim",
+  config = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    require("which-key").setup {}
+  end
+}
+end)
+wk = require("which-key")
+
 vim.g.mapleader = ","
 
 -- highlight search result and show them incrementally
@@ -67,19 +79,30 @@ end
 
 vim.cmd.source(vimrc)
 
+wk.register({
+  f = {
+    name = "telescope", -- optional group name
+    j = { "<cmd>Telescope git_files<cr>", "Git File" },
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    h = { "<cmd>Telescope help_tags<cr>", "Help tags" }
+  },
+}, { prefix = "<leader>" })
+
 -- diff mode keybinds
 if vim.diff then
   vim.opt.diffopt = vim.opt.diffopt + 'vertical'
-  vim.keymap.set('n', '<leader>1', ':diffget 1<CR>', {noremap = true, silent = true})
-  vim.keymap.set('n', '<leader>2', ':diffget 2<CR>', {noremap = true, silent = true})
-  vim.keymap.set('n', '<leader>3', ':diffget 3<CR>', {noremap = true, silent = true})
-
-  vim.keymap.set('n', '<leader>u', ':diffupdate<CR>', {noremap = true, silent = true})
-
-  -- exit with error
-  vim.keymap.set('n', '<leader>q', ':cq<CR>', {noremap = true, silent = true})
-
-  -- navigate diffs
-  vim.keymap.set('n', '<leader>i', ':cp<CR>', {noremap = true, silent = true})
-  vim.keymap.set('n', '<leader>k', ':cn<CR>', {noremap = true, silent = true})
+  wk.register({
+    d = {
+      name = "diff", -- optional group name
+      [1] = { ":diffget 1<cr>", "Get from left" },
+      [2] = { ":diffget 2<cr>", "Get from middle" },
+      [3] = { ":diffget 3<cr>", "Get from right" },
+      u = { ":diffupdate<cr>", "Update" },
+      q = { ":cq<cr>", "Quit" },
+      i = { ":cp<cr>", "Previous" },
+      k = { ":cn<cr>", "Next" }
+    },
+  }, { prefix = "<leader>" })
 end

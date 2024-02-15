@@ -1,6 +1,7 @@
 local vimrc = vim.fn.stdpath('config') .. '/vimrc.vim'
 
 require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
   use {
   "folke/which-key.nvim",
   config = function()

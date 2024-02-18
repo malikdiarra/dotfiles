@@ -4,6 +4,7 @@
 
 [commit]
 	template = ~/.dotfiles/git_commit_msg.txt
+	verbose = true
 
 [alias]
 	ss = status -s

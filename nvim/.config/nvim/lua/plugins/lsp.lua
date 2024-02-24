@@ -29,6 +29,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", {noremap = true, silent = true, buffer = bufnr})
 
   vim.keymap.set("n", "<leader>bf", "<cmd>lua vim.lsp.buf.format()<CR>", {noremap = true, silent = true, buffer = bufnr})
+  vim.keymap.set("n", "]q", "<cmd>lua vim.diagnostic.goto_next()<CR>", {noremap = true, silent = true, buffer = bufnr})
+  vim.keymap.set("n", "[q", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true, buffer = bufnr})
+  vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.diagnostic.open_float(0, {scope = 'line'})<CR>", {noremap = true, silent = true, buffer = bufnr})
 end
 
 vim.lsp.set_log_level('debug')

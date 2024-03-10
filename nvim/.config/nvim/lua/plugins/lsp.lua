@@ -2,20 +2,23 @@ require("mason").setup()
 require("mason-lspconfig").setup({ ensure_installed = {"gopls", "jdtls"} })
 vim.lsp.set_log_level('debug')
 local util = require("lspconfig/util")
+wk = require("which-key")
 
 local on_attach = function(client, bufnr)
-  vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true, buffer = bufnr})
-
-  vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true, buffer = bufnr})
-  vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true, buffer = bufnr})
+  wk.register({
+    l = {
+      name = "LSP",
+      d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"},
+      r = {"<cmd>lua vim.lsp.buf.references()<CR>", "Go to references"},
+      i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation"},
+    }
+  }, {prefix = "<leader>"})
 
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true, buffer = bufnr})
   vim.keymap.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true, buffer = bufnr})
   vim.keymap.set("n", "<leader>ds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true, buffer = bufnr})
 
-
   vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true, buffer = bufnr})
-
   vim.keymap.set("n", "<leader>td", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true, buffer = bufnr})
 
   vim.keymap.set("n", "<leader>ic", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", {noremap = true, silent = true, buffer = bufnr})

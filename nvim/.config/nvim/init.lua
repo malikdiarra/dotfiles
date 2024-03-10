@@ -3,13 +3,17 @@ local vimrc = vim.fn.stdpath('config') .. '/vimrc.vim'
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
-  "folke/which-key.nvim",
-  config = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-    require("which-key").setup {}
-  end
-}
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {}
+    end
+  }
 end)
 wk = require("which-key")
 

@@ -6,7 +6,7 @@ wk = require("which-key")
 
 local on_attach = function(client, bufnr)
   wk.register({
-    l = {
+    c = {
       name = "LSP",
       d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"},
       r = {"<cmd>lua vim.lsp.buf.references()<CR>", "Go to references"},

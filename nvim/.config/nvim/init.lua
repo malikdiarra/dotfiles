@@ -111,3 +111,5 @@ if vim.diff then
     },
   }, { prefix = "<leader>" })
 end
+
+require("plugins.lsp")

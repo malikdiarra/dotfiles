@@ -141,5 +141,3 @@ function! StrTrim(txt)
 endfunction
 
 nnoremap <bs> <c-^>
-
-lua require "plugins.lsp"

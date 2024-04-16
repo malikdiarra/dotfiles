@@ -136,8 +136,4 @@ set termguicolors
 colorschem kanagawa
 "}}}
 
-function! StrTrim(txt)
-  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-endfunction
-
 nnoremap <bs> <c-^>

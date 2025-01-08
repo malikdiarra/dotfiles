@@ -51,6 +51,8 @@
 	conflictstyle = diff3
 	tool = nvimdiff
 	keepbackup = false
+	ff = no
+	commit = no
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 	insteadOf = http://www.github.com/

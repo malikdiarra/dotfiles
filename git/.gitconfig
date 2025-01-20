@@ -1,6 +1,6 @@
 [user]
 	name = Malik Diarra
-	email = malik.diarra@gmail.com
+	email = malik@additive.ai
 
 [commit]
 	template = ~/.dotfiles/git_commit_msg.txt

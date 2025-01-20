@@ -1,17 +1,3 @@
-call plug#begin()
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'github/copilot.vim'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-surround'
-  Plug 'mattn/emmet-vim'
-  Plug 'rebelot/kanagawa.nvim'
-  Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'}
-  Plug 'williamboman/mason-lspconfig.nvim'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'fatih/vim-go'
-call plug#end()
-
 " Custom autocommands {{{
 augroup vimrcEx
   autocmd!

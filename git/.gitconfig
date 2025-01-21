@@ -64,3 +64,5 @@
 	prompt = false
 [mergetool]
 	keepBackup = false
+[grep]
+	lineNumber = true

@@ -1,9 +1,9 @@
 local vimrc = vim.fn.stdpath('config') .. '/vimrc.vim'
 
+vim.g.mapleader = ","
 require('config.lazy')
 wk = require("which-key")
 
-vim.g.mapleader = ","
 
 -- highlight search result and show them incrementally
 vim.opt.hlsearch = true

@@ -5,27 +5,23 @@ local util = require("lspconfig/util")
 wk = require("which-key")
 
 local on_attach = function(client, bufnr)
-  wk.register({
-    n = {
-      name = "Navigation - LSP",
-      d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"},
-      r = {"<cmd>lua vim.lsp.buf.references()<CR>", "Go to references"},
-      i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation"},
-      n = {"<cmd>lua vim.lsp.buf.type_definition()<CR>", "Show type definition"},
-      ci = {"<cmd>lua vim.lsp.buf.incoming_calls()<CR>", "View incoming calls"},
-      co = {"<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", "View outgoing calls"},
-      s = {"<cmd>lua vim.lsp.buf.document_symbol()<CR>", "Show symbols"},
-    }
-  }, {prefix = "<leader>"})
+  wk.add({
+    { "<leader>n", group = "Navigation - LSP" },
+    { "<leader>nci", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", desc = "View incoming calls" },
+    { "<leader>nco", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", desc = "View outgoing calls" },
+    { "<leader>nd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
+    { "<leader>ni", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to implementation" },
+    { "<leader>nn", "<cmd>lua vim.lsp.buf.type_definition()<CR>", desc = "Show type definition" },
+    { "<leader>nr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Go to references" },
+    { "<leader>ns", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", desc = "Show symbols" },
+  })
 
-  wk.register({
-    a = {
-      name = "Action - LSP",
-      a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action"},
-      r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename"},
-      f = {"<cmd>lua vim.lsp.buf.format()<CR>", "Format"},
-    }
-  }, {prefix = "<leader>"})
+  wk.add({
+    { "<leader>a", group = "Action - LSP" },
+    { "<leader>aa", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code action" },
+    { "<leader>af", "<cmd>lua vim.lsp.buf.format()<CR>", desc = "Format" },
+    { "<leader>ar", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
+  })
 
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true, buffer = bufnr})
   vim.keymap.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true, buffer = bufnr})

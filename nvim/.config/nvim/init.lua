@@ -70,32 +70,29 @@ end
 
 vim.cmd.source(vimrc)
 
-wk.register({
-  f = {
-    name = "telescope", -- optional group name
-    j = { "<cmd>Telescope git_files<cr>", "Git File" },
-    f = { "<cmd>Telescope find_files<cr>", "Find File" },
-    g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-    h = { "<cmd>Telescope help_tags<cr>", "Help tags" }
-  },
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>f", group = "telescope" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+    { "<leader>fj", "<cmd>Telescope git_files<cr>", desc = "Git File" },
+  })
 
 -- diff mode keybinds
 if vim.diff then
   vim.opt.diffopt = vim.opt.diffopt + 'vertical'
-  wk.register({
-    d = {
-      name = "diff", -- optional group name
-      [1] = { ":diffget 1<cr>", "Get from left" },
-      [2] = { ":diffget 2<cr>", "Get from middle" },
-      [3] = { ":diffget 3<cr>", "Get from right" },
-      u = { ":diffupdate<cr>", "Update" },
-      q = { ":cq<cr>", "Quit" },
-      i = { ":cp<cr>", "Previous" },
-      k = { ":cn<cr>", "Next" }
-    },
-  }, { prefix = "<leader>" })
+  wk.add(
+    {
+      { "<leader>d", group = "diff" },
+      { "<leader>d1", ":diffget 1<cr>", desc = "Get from left" },
+      { "<leader>d2", ":diffget 3<cr>", desc = "Get from right" },
+      { "<leader>d3", ":diffget 2<cr>", desc = "Get from middle" },
+      { "<leader>di", ":cp<cr>", desc = "Previous" },
+      { "<leader>dk", ":cn<cr>", desc = "Next" },
+      { "<leader>dq", ":cq<cr>", desc = "Quit" },
+      { "<leader>du", ":diffupdate<cr>", desc = "Update" },
+    })
 end
 
 require("plugins.lsp")

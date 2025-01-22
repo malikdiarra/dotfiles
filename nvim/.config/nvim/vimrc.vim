@@ -54,63 +54,6 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 " }}}
 
-" General Shortcuts {{{
-" opening file in current file directory
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>ee :edit %%
-map <leader>ev :edit $MYVIMRC<cr>
-map <leader>et :edit ~/journal.md<cr>
-
-
-" Deactivating arrown keys
-map <Left> :echo "No!"<cr>
-map <Down> :echo "No!"<cr>
-map <Right> :echo "No!"<cr>
-map <Up> :echo "No!"<cr>
-
-" Mapping ,<motion> to window change action
-map <leader>j <C-W>j
-map <leader>h <C-W>h
-map <leader>k <C-W>k
-map <leader>l <C-W>l
-
-inoremap <c-u> <esc>bgUwgi
-
-" Save
-nnoremap s :w<cr>
-nnoremap :w<cr> :echo "No!"<cr>
-nnoremap :wq<cr> :echo "No! use ZZ"<cr>
-
-" Keep cursor at the same place when joining lines
-nnoremap J mzJ`z
-
-" Split line
-nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
-
-" Clipboard yank and paste
-vnoremap <leader>y "*y
-nnoremap <leader>y "*y
-nnoremap <leader>p "*p
-nnoremap <leader>P "*P
-
-nmap gV `[v`]
-
-" Correccting up and down navigation
-noremap j gj
-noremap k gk
-noremap gj j
-noremap gk k
-
-" Move visual blocks
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-" Insert blank line
-nnoremap <cr> o<esc>
-nnoremap <s-cr> O<esc>
-
-" }}}
-
 "{{{ Color
 set background=dark
 hi Cursorline cterm=NONE ctermbg=darkgrey guibg=darkgrey
@@ -124,5 +67,3 @@ let &colorcolumn="80,".join(range(120,999),",")
 set termguicolors
 colorschem kanagawa
 "}}}
-
-nnoremap <bs> <c-^>

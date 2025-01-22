@@ -1,8 +1,6 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
 
-local vimrc = vim.fn.stdpath('config') .. '/vimrc.vim'
-
 require('config.lazy')
 wk = require("which-key")
 

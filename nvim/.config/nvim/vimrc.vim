@@ -53,17 +53,3 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 " }}}
-
-"{{{ Color
-set background=dark
-hi Cursorline cterm=NONE ctermbg=darkgrey guibg=darkgrey
-
-" Highlighting trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\(\s\+$\)\|\(\($\n\s*\)\+\%$\)/
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-highlight ColorColumn ctermbg=darkgrey guibg=#2c2d27
-let &colorcolumn="80,".join(range(120,999),",")
-set termguicolors
-colorschem kanagawa
-"}}}

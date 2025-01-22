@@ -6,6 +6,23 @@ local vimrc = vim.fn.stdpath('config') .. '/vimrc.vim'
 require('config.lazy')
 wk = require("which-key")
 
+-- highlights
+vim.cmd [[set background=dark]]
+vim.cmd [[highlight ExtraWhitespace ctermbg=red guibg=red]]
+vim.cmd [[match ExtraWhitespace /\(\s\+$\)\|\(\($\n\s*\)\+\%$\)/]]
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.cmd [[highlight ExtraWhitespace ctermbg=red guibg=red]]
+  end,
+})
+
+vim.opt.colorcolumn = '80,120'
+vim.cmd [[highlight ColorColumn ctermbg=darkgrey guibg=#2c2d27]]
+vim.cmd [[highlight Cursorline cterm=NONE ctermbg=darkgrey guibg=darkgrey]]
+
+-- set colorscheme
+vim.cmd [[colorscheme kanagawa]]
 
 -- highlight search result and show them incrementally
 vim.opt.hlsearch = true

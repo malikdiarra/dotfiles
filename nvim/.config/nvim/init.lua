@@ -6,6 +6,95 @@ local vimrc = vim.fn.stdpath('config') .. '/vimrc.vim'
 require('config.lazy')
 wk = require("which-key")
 
+-- autogroups
+-- Cursor line is only shown in normal mode / current window
+local clineGroup = vim.api.nvim_create_augroup("cline", {clear=true})
+vim.api.nvim_create_autocmd({"WinLeave", "InsertEnter"}, {
+  pattern = "*",
+  callback = function()
+    vim.opt.cursorline = false
+  end,
+  group = clineGroup,
+})
+vim.api.nvim_create_autocmd({"WinEnter", "InsertLeave"}, {
+  pattern = "*",
+  callback = function()
+    vim.opt.cursorline = true
+  end,
+  group = clineGroup,
+})
+
+local mainGroup = vim.api.nvim_create_augroup("vimrcEx", {clear=true})
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    vim.cmd [[
+      if line("'\"") > 0 && line("'\"") <= line("$") |
+        exe "normal! g`\"" |
+      endif
+      ]]
+  end,
+  group = mainGroup,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+    vim.opt.softtabstop = 4
+    vim.opt.expandtab = true
+    vim.opt_local.foldmethod = 'indent'
+  end,
+  group = mainGroup,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "javascript",
+  callback = function()
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+    vim.opt.softtabstop = 2
+    vim.opt.expandtab = true
+  end,
+  group = mainGroup,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitconfig",
+  callback = function()
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+    vim.opt.softtabstop = 4
+    vim.opt.expandtab = false
+  end,
+  group = mainGroup,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+    vim.opt.softtabstop = 4
+    vim.opt.expandtab = false
+  end,
+  group = mainGroup,
+})
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "quickfix",
+  callback = function()
+    vim.cmd [[
+      nnoremap <buffer> <cr> <cr>
+    ]]
+  end,
+  group = mainGroup,
+})
+
+
+vim.api.nvim_create_autocmd({"VimResized"},{
+  pattern = "*",
+  callback = function()
+    vim.cmd [[wincmd =]]
+  end,
+})
+
 -- highlights
 vim.cmd [[set background=dark]]
 vim.cmd [[highlight ExtraWhitespace ctermbg=red guibg=red]]

@@ -94,19 +94,7 @@ vim.api.nvim_create_autocmd({"VimResized"},{
 })
 
 -- status line
-vim.opt.laststatus = 2
-
-vim.opt.statusline = [[%t]]
-vim.opt.statusline = vim.opt.statusline + [[ [%{strlen(&fenc)?&fenc:'none'}]]
-vim.opt.statusline = vim.opt.statusline + [[ %{&ff}] ]]
-vim.opt.statusline = vim.opt.statusline + [[%h]]
-vim.opt.statusline = vim.opt.statusline + [[%m]]
-vim.opt.statusline = vim.opt.statusline + [[%r]]
-vim.opt.statusline = vim.opt.statusline + [[%y]]
-vim.opt.statusline = vim.opt.statusline + [[%=]]
-vim.opt.statusline = vim.opt.statusline + [[%c,]]
-vim.opt.statusline = vim.opt.statusline + [[%l/%L]]
-vim.opt.statusline = vim.opt.statusline + [[\ %P]]
+require('lualine').setup()
 
 -- highlights
 vim.cmd [[set background=dark]]

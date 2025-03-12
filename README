@@ -1,4 +1,5 @@
 brew install git bash-completion stow
+brew install font-hack-nerd-font
 
 requirements:
 stow

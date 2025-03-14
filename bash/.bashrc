@@ -107,7 +107,29 @@ export EDITOR=vim
 
 #Setting custom prompt
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(GIT:\1)/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+function git_prompt {
+
+  branch=$(parse_git_branch)
+  path=$(git rev-parse --show-toplevel 2> /dev/null)
+  if [ $? == 0 ]
+  then
+    directory=$(basename $path)
+    echo "(:$branch@$directory)"
+  else
+    echo ""
+  fi
+}
+function kubernetes_prompt {
+  context=$(kubectl config current-context 2>/dev/null)
+  if [ $? == 0 ]
+  then
+    echo "󱃾:${context}"
+  else
+    echo ""
+  fi
 }
 
 function proml {
@@ -129,8 +151,9 @@ function proml {
 
 PS1="${TITLEBAR}\
 $BLUE[$RED\$(date +%H:%M)$BLUE]\
-$BLUE[$RED\u@\h:\W$GREEN\$(parse_git_branch)\
-(K8S:\$(kubectl config current-context))$BLUE]\
+$BLUE[$RED\u@\h:\W$GREEN\
+\$(git_prompt)\
+$BLUE]\
 $GREEN\$$LIGHT_GRAY "
 PS2='> '
 PS4='+ '

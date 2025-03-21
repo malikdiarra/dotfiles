@@ -1,5 +1,5 @@
 require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = {"gopls", "jdtls"} })
+require("mason-lspconfig").setup({})
 vim.lsp.set_log_level('debug')
 local util = require("lspconfig/util")
 wk = require("which-key")

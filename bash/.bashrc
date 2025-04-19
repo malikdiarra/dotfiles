@@ -114,10 +114,12 @@ function git_prompt {
 
   branch=$(parse_git_branch)
   path=$(git rev-parse --show-toplevel 2> /dev/null)
+  githash=$(git rev-parse --short HEAD 2> /dev/null)
+
   if [ $? == 0 ]
   then
-    directory=$(basename $path)
-    echo "(:$branch@$directory)"
+    local directory=$(basename $path)
+    echo ":$branch($githash):$directory"
   else
     echo ""
   fi
@@ -151,8 +153,9 @@ function proml {
 
 PS1="${TITLEBAR}\
 $BLUE[$RED\$(date +%H:%M)$BLUE]\
-$BLUE[$RED\u@\h:\W$GREEN\
-\$(git_prompt)\
+$BLUE[$RED\u@\h:\W\
+$BLUE][\
+$GREEN\$(git_prompt)\
 $BLUE]\
 $GREEN\$$LIGHT_GRAY "
 PS2='> '

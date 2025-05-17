@@ -11,6 +11,7 @@ then
   stow --no-folding git
   stow --no-folding i3
   stow --no-folding tmux
+  stow --no-folding starship
 else
   echo "Stow is not available, Skipping deployment"
 fi

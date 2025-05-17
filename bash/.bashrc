@@ -119,9 +119,15 @@ function git_prompt {
   if [ $? == 0 ]
   then
     local directory=$(basename $path)
-    echo ":$branch($githash):$directory"
+    echo ":$branch($githash):$directory"
   else
     echo ""
+  fi
+}
+function git_prompt_output {
+  local info=$(git_prompt)
+  if [ -n "$info" ]; then
+    echo "\[\033[0;34m\][\[\033[0;32m\]$info\[\033[0;34m\]]"
   fi
 }
 function kubernetes_prompt {
@@ -150,18 +156,22 @@ function proml {
     TITLEBAR=""
     ;;
   esac
-
-PS1="${TITLEBAR}\
-$BLUE[$RED\$(date +%H:%M)$BLUE]\
-$BLUE[$RED\u@\h:\W\
-$BLUE][\
-$GREEN\$(git_prompt)\
-$BLUE]\
-$GREEN\$$LIGHT_GRAY "
+  PS1="${TITLEBAR}\
+${BLUE}[${RED}\$(date +%H:%M)${BLUE}]\
+${BLUE}[${RED}\u@\h:\W${BLUE}]\
+\$( \
+  gitinfo=\$(git_prompt); \
+  if [ -n \"\$gitinfo\" ]; then \
+    echo \"${BLUE}[${GREEN}\$gitinfo${BLUE}]\"; \
+  fi \
+)\
+${GREEN}\$${LIGHT_GRAY} "
 PS2='> '
 PS4='+ '
 }
 proml
+
+eval "$(starship init bash)"
 
 folder_size() {
   du -h --summarize $@

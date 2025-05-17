@@ -103,7 +103,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 #Environment
-export EDITOR=vim
+export EDITOR=nvim
 
 #Setting custom prompt
 function parse_git_branch {

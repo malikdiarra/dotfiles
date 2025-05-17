@@ -38,6 +38,24 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "]q", "<cmd>lua vim.diagnostic.goto_next()<CR>", {noremap = true, silent = true, buffer = bufnr})
   vim.keymap.set("n", "[q", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true, buffer = bufnr})
   vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.diagnostic.open_float(0, {scope = 'line'})<CR>", {noremap = true, silent = true, buffer = bufnr})
+
+  if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+  end
+
+  local augrp = vim.api.nvim_create_augroup("document_highlight_" .. bufnr, { clear = true })
+  if client:supports_method('textDocument/documentHighlight') then
+    vim.api.nvim_create_autocmd("CursorHold", {
+        callback = function() vim.lsp.buf.document_highlight() end,
+        buffer = bufnr,
+        group = augrp,
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+        callback = function() vim.lsp.buf.clear_references() end,
+        buffer = bufnr,
+        group = augrp,
+    })
+end
 end
 
 vim.lsp.set_log_level('debug')

@@ -309,3 +309,7 @@ cmp.setup({
 
 vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>t', ':terminal<CR>', {noremap = true, silent = true})
+
+vim.api.nvim_create_user_command("PickDocStage", function()
+  require("docrepo.picker").doc_stage_picker()
+end, {})

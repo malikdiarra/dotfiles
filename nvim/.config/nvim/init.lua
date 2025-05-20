@@ -265,13 +265,13 @@ if vim.diff then
   wk.add(
     {
       { "<leader>d", group = "diff" },
-      { "<leader>d1", ":diffget 1<cr>", desc = "Get from left" },
-      { "<leader>d2", ":diffget 3<cr>", desc = "Get from right" },
-      { "<leader>d3", ":diffget 2<cr>", desc = "Get from middle" },
-      { "<leader>di", ":cp<cr>", desc = "Previous" },
+      { "<leader>du", ":diffget 1<cr>", desc = "Get from left" },
+      { "<leader>di", ":diffget 3<cr>", desc = "Get from right" },
+      { "<leader>do", ":diffget 2<cr>", desc = "Get from middle" },
+      { "<leader>dj", ":cp<cr>", desc = "Previous" },
       { "<leader>dk", ":cn<cr>", desc = "Next" },
       { "<leader>dq", ":cq<cr>", desc = "Quit" },
-      { "<leader>du", ":diffupdate<cr>", desc = "Update" },
+      { "<leader>dh", ":diffupdate<cr>", desc = "Update" },
     })
 end
 

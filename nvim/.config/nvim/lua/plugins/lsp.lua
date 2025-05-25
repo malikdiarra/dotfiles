@@ -39,9 +39,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "[q", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true, buffer = bufnr})
   vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.diagnostic.open_float(0, {scope = 'line'})<CR>", {noremap = true, silent = true, buffer = bufnr})
 
-  if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-  end
+  --if client:supports_method('textDocument/completion') then
+  --    vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = false })
+  --end
 
   local augrp = vim.api.nvim_create_augroup("document_highlight_" .. bufnr, { clear = true })
   if client:supports_method('textDocument/documentHighlight') then
@@ -75,6 +75,10 @@ require("lspconfig").gopls.setup {
     },
   }
 }
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require("lspconfig").jedi_language_server.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }

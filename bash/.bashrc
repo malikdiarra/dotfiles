@@ -193,4 +193,4 @@ if [ -n ${ADDITIONAL_PS1} ]
 then
   PS1="${ADDITIONAL_PS1} $PS1"
 fi
-bind '\C-g:backward-kill-word'
+bind '\C-b:backward-kill-word'

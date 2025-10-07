@@ -181,7 +181,7 @@ if [ -d ~/bin ]; then
   export PATH=$PATH:~/bin
 fi
 
-alias append-file="vim '+normal Go'"
+alias append-file="nvim '+normal Go'"
 
 for f in ~/.bashrc.d/*.bashrc; do
   if test -f "$f"; then

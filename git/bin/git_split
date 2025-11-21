@@ -1,0 +1,78 @@
+#!/bin/bash
+
+# Check if we're in a git repository
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+  echo "Error: Not in a git repository"
+  exit 1
+fi
+
+# Check if there are commits to split
+if ! git rev-parse HEAD^ > /dev/null 2>&1; then
+  echo "Error: No previous commit to split"
+  exit 1
+fi
+
+echo "Splitting last commit into multiple commits..."
+echo "=========================================="
+echo ""
+
+# Save the commit message for reference
+ORIGINAL_MESSAGE=$(git log -1 --pretty=%B)
+echo "Original commit message:"
+echo "${ORIGINAL_MESSAGE}"
+echo ""
+
+# Reset the last commit, keeping changes in working directory
+git reset HEAD^
+
+echo ""
+echo "=========================================="
+echo "Select changes for FIRST commit:"
+echo "=========================================="
+git add -p
+
+# Check if anything was staged
+if git diff --cached --quiet; then
+  echo ""
+  echo "No changes staged. Aborting split."
+  # Restore the original commit
+  git add -A
+  git commit -m "${ORIGINAL_MESSAGE}"
+  exit 1
+fi
+
+echo ""
+git commit
+
+# Check if there are remaining changes
+if git diff --quiet && git diff --cached --quiet; then
+  echo ""
+  echo "All changes committed. Split complete!"
+  exit 0
+fi
+
+echo ""
+echo "=========================================="
+echo "Remaining changes:"
+echo "=========================================="
+git status --short
+echo ""
+echo "Select changes for SECOND commit (or press 'q' to skip all):"
+echo "=========================================="
+git add -p
+
+# Check if anything was staged for second commit
+if ! git diff --cached --quiet; then
+  echo ""
+  git commit
+fi
+
+# Check if there are still remaining changes
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo ""
+  echo "There are still unstaged changes remaining."
+  echo "Run 'git add' and 'git commit' to commit them, or 'git restore' to discard."
+fi
+
+echo ""
+echo "Split complete!"

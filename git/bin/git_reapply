@@ -1,0 +1,35 @@
+PARENT=$1
+
+if [ "${PARENT}" == "" ]; then
+  # Try to get parent from Graphite if available
+  if command -v gt &> /dev/null; then
+    GRAPHITE_PARENT=$(gt branch parent 2>/dev/null | tail -1)
+    if [ $? -eq 0 ] && [ -n "${GRAPHITE_PARENT}" ]; then
+      echo "Using Graphite parent: ${GRAPHITE_PARENT}"
+      PARENT="${GRAPHITE_PARENT}"
+    fi
+  fi
+
+  # If still no parent, prompt user
+  if [ "${PARENT}" == "" ]; then
+    echo -n "Enter parent commit/branch (default: default branch): "
+    read PARENT
+    if [ "${PARENT}" == "" ]; then
+      # Use the default branch
+      DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+      if [ -z "${DEFAULT_BRANCH}" ]; then
+        # Fallback if origin/HEAD is not set
+        DEFAULT_BRANCH=$(git remote show origin 2>/dev/null | grep 'HEAD branch' | cut -d' ' -f5)
+      fi
+      if [ -n "${DEFAULT_BRANCH}" ]; then
+        echo "Using default branch: ${DEFAULT_BRANCH}"
+        PARENT="${DEFAULT_BRANCH}"
+      else
+        echo "Error: Could not determine default branch"
+        exit 1
+      fi
+    fi
+  fi
+fi
+
+GIT_EDITOR=/usr/bin/true git rebase -i $PARENT

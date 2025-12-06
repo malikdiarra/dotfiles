@@ -26,6 +26,7 @@
 	reapply = !GIT_EDITOR=/usr/bin/true git rebase -i
 	undo = reset HEAD^ --
 	rename-branch = branch -m
+	diff-parent = !git diff $(gt parent 2>/dev/null || git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed \"s@^refs/remotes/origin/@@\" || echo main)
 
 [color]
 	ui = always

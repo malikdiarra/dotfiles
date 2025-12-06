@@ -78,9 +78,60 @@ require("lspconfig").gopls.setup {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- Helper function to find the Python workspace root with uv workspace
+local function find_python_workspace_root(fname)
+  -- Search upward from the file looking for a pyproject.toml with [tool.uv.workspace]
+  local current_dir = vim.fn.fnamemodify(fname, ':p:h')
+
+  while current_dir and current_dir ~= '/' do
+    local pyproject_path = current_dir .. "/pyproject.toml"
+    local file = io.open(pyproject_path, "r")
+    if file then
+      local content = file:read("*all")
+      file:close()
+      -- Check if this pyproject.toml contains workspace configuration
+      if content:match("%[tool%.uv%.workspace%]") then
+        return current_dir
+      end
+    end
+    -- Move up one directory
+    current_dir = vim.fn.fnamemodify(current_dir, ':h')
+  end
+
+  -- Fallback to standard patterns if no workspace found
+  return util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git")(fname)
+end
+
+-- Helper function to find the Python virtual environment
+local function find_python_venv(workspace_root)
+  -- Common virtual environment directory names
+  local venv_names = {".venv", "venv", ".virtualenv", "env"}
+
+  for _, venv_name in ipairs(venv_names) do
+    local venv_path = workspace_root .. "/" .. venv_name .. "/bin/python"
+    local file = io.open(venv_path, "r")
+    if file then
+      file:close()
+      return venv_path
+    end
+  end
+
+  -- Fallback to system Python
+  return nil
+end
+
 require("lspconfig").jedi_language_server.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = find_python_workspace_root,
+  on_new_config = function(config, root_dir)
+    local venv = find_python_venv(root_dir)
+    if venv then
+      config.init_options = config.init_options or {}
+      config.init_options.workspace = config.init_options.workspace or {}
+      config.init_options.workspace.environmentPath = venv
+    end
+  end,
 }
 
 require("lspconfig").vtsls.setup {

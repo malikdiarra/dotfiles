@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({})
-vim.lsp.set_log_level('debug')
+vim.lsp.set_log_level('warn')
 local util = require("lspconfig/util")
 wk = require("which-key")
 
@@ -58,7 +58,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
-vim.lsp.set_log_level('debug')
 
 require("lspconfig").gopls.setup {
   on_attach = on_attach,

@@ -176,3 +176,19 @@ vim.diagnostic.config({
   severity_sort = true,
   update_in_insert = false,
 })
+
+-- Add debug command to check Python LSP configuration
+vim.api.nvim_create_user_command("LspPythonInfo", function()
+  local clients = vim.lsp.get_clients({name = "jedi_language_server"})
+  if #clients > 0 then
+    local client = clients[1]
+    print("Python LSP Info:")
+    print("  Root dir: " .. (client.config.root_dir or "none"))
+    print("  Init options: " .. vim.inspect(client.config.init_options))
+    if client.config.cmd then
+      print("  Command: " .. table.concat(client.config.cmd, " "))
+    end
+  else
+    print("No jedi_language_server client attached to current buffer")
+  end
+end, { desc = "Show Python LSP configuration info" })

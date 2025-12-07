@@ -109,9 +109,12 @@ end
 local function find_python_venv(workspace_root)
   -- Common virtual environment directory names
   local venv_names = {".venv", "venv", ".virtualenv", "env"}
+  -- Check for Windows vs Unix
+  local is_windows = vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1
+  local python_path = is_windows and "Scripts/python.exe" or "bin/python"
 
   for _, venv_name in ipairs(venv_names) do
-    local venv_path = workspace_root .. "/" .. venv_name .. "/bin/python"
+    local venv_path = workspace_root .. "/" .. venv_name .. "/" .. python_path
     local file = io.open(venv_path, "r")
     if file then
       file:close()

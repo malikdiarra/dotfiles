@@ -157,3 +157,17 @@ require("lspconfig").vtsls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+-- Configure diagnostic display
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '●',
+    source = 'if_many',
+  },
+  float = {
+    source = 'always',
+    border = 'rounded',
+  },
+  severity_sort = true,
+  update_in_insert = false,
+})

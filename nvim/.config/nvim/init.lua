@@ -262,17 +262,7 @@ wk.add({
 -- diff mode keybinds
 if vim.diff then
   vim.opt.diffopt = vim.opt.diffopt + 'vertical'
-  wk.add(
-    {
-      { "<leader>d", group = "diff" },
-      { "<leader>du", ":diffget 1<cr>", desc = "Get from left" },
-      { "<leader>di", ":diffget 3<cr>", desc = "Get from right" },
-      { "<leader>do", ":diffget 2<cr>", desc = "Get from middle" },
-      { "<leader>dj", ":cp<cr>", desc = "Previous" },
-      { "<leader>dk", ":cn<cr>", desc = "Next" },
-      { "<leader>dq", ":cq<cr>", desc = "Quit" },
-      { "<leader>dh", ":diffupdate<cr>", desc = "Update" },
-    })
+  require("keybinds.diff")
 end
 
 require("plugins.lsp")

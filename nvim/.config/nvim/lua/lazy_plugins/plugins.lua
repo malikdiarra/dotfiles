@@ -26,5 +26,15 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
+  },
+  {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for git operations
+    },
+    config = function()
+      require("claude-code").setup()
+    end
   }
+
 }

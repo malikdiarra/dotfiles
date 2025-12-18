@@ -251,13 +251,15 @@ wk.add({
   { "<S-cr>", "O<esc>" }, -- this does not work outside of gvim
 })
 
+-- telescope
 wk.add({
-  { "<leader>f", group = "telescope" },
+  { "<leader>f", group = "find" },
   { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
   { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
   { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
-  { "<leader>fj", "<cmd>Telescope git_files<cr>", desc = "Git File" },
+  { "<leader>fj", "<cmd>Telescope git_files<cr>", desc = "Git files" },
+  { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document symbols" },
 })
 
 -- diff mode keybinds

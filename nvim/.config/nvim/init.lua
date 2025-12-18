@@ -273,6 +273,12 @@ wk.add({
   { "<leader>gd", "<cmd>Gdiffsplit<cr>", desc = "Diff" },
 })
 
+-- diagnostics (non-LSP specific)
+wk.add({
+  { "<leader>x", group = "diagnostics" },
+  { "<leader>xl", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics list" },
+})
+
 -- diff mode keybinds
 if vim.diff then
   vim.opt.diffopt = vim.opt.diffopt + 'vertical'

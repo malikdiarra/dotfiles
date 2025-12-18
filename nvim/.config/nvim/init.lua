@@ -212,10 +212,11 @@ wk.add({
 
 -- window motions
 wk.add({
-  { "<leader>j", "<C-W>j" },
-  { "<leader>h", "<C-W>h" },
-  { "<leader>k", "<C-W>k" },
-  { "<leader>l", "<C-W>l" },
+  { "<leader>w", group = "windows" },
+  { "<leader>wh", "<C-W>h", desc = "Focus left" },
+  { "<leader>wj", "<C-W>j", desc = "Focus down" },
+  { "<leader>wk", "<C-W>k", desc = "Focus up" },
+  { "<leader>wl", "<C-W>l", desc = "Focus right" },
 })
 
 -- yank and paste

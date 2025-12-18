@@ -2,14 +2,14 @@ wk = require("which-key")
 
 wk.add(
   {
-    { "<leader>d", group = "diff" },
-    { "<leader>du", ":diffget 1<cr>", desc = "Get from left" },
-    { "<leader>di", ":diffget 3<cr>", desc = "Get from right" },
-    { "<leader>do", ":diffget 2<cr>", desc = "Get from middle" },
-    { "<leader>dj", ":cp<cr>", desc = "Previous" },
-    { "<leader>dk", ":cn<cr>", desc = "Next" },
-    { "<leader>dq", ":cq<cr>", desc = "Quit" },
-    { "<leader>dh", ":diffupdate<cr>", desc = "Update" },
+    { "<leader>m", group = "merge/diff" },
+    { "<leader>mu", ":diffget 1<cr>", desc = "Get from left" },
+    { "<leader>mi", ":diffget 3<cr>", desc = "Get from right" },
+    { "<leader>mo", ":diffget 2<cr>", desc = "Get from middle" },
+    { "<leader>mn", ":cn<cr>", desc = "Next change" },
+    { "<leader>mp", ":cp<cr>", desc = "Previous change" },
+    { "<leader>mq", ":cq<cr>", desc = "Quit" },
+    { "<leader>mh", ":diffupdate<cr>", desc = "Update diff" },
   })
 
 -- diff mode and conflict resolution functions

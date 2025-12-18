@@ -262,6 +262,17 @@ wk.add({
   { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document symbols" },
 })
 
+-- git operations
+wk.add({
+  { "<leader>g", group = "git" },
+  { "<leader>gs", "<cmd>Git<cr>", desc = "Status" },
+  { "<leader>gc", "<cmd>Git commit<cr>", desc = "Commit" },
+  { "<leader>gp", "<cmd>Git push<cr>", desc = "Push" },
+  { "<leader>gl", "<cmd>Git log<cr>", desc = "Log" },
+  { "<leader>gb", "<cmd>Git blame<cr>", desc = "Blame" },
+  { "<leader>gd", "<cmd>Gdiffsplit<cr>", desc = "Diff" },
+})
+
 -- diff mode keybinds
 if vim.diff then
   vim.opt.diffopt = vim.opt.diffopt + 'vertical'

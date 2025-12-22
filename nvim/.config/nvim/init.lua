@@ -185,9 +185,11 @@ wk.add({
   { "<bs>", "<c-^>" }
 })
 
--- open files
+-- open files and help
 wk.add({
-  { "<leader>ev", ":edit $MYVIMRC<cr>" },
+  { "<leader>e", ":edit $MYVIMRC<cr>", desc = "Edit vimrc" },
+  { "<leader>?", ":LeaderShortcuts<cr>", desc = "Leader shortcuts reference" },
+  { "<leader>!", ":LeaderStats<cr>", desc = "Leader usage statistics" },
 })
 
 -- selection pasted content
@@ -259,6 +261,7 @@ wk.add({
   { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
   { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
   { "<leader>fj", "<cmd>Telescope git_files<cr>", desc = "Git files" },
+  { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
   { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document symbols" },
 })
 
@@ -313,3 +316,44 @@ vim.api.nvim_set_keymap('n', '<leader>t', ':terminal<CR>', {noremap = true, sile
 vim.api.nvim_create_user_command("PickDocStage", function()
   require("docrepo.picker").doc_stage_picker()
 end, {})
+
+-- Leader shortcuts documentation
+vim.api.nvim_create_user_command("LeaderShortcuts", function()
+  require("shortcuts_doc").open_docs()
+end, { desc = "Generate and open leader shortcuts documentation" })
+
+vim.api.nvim_create_user_command("LeaderShortcutsSave", function()
+  require("shortcuts_doc").save_to_file()
+end, { desc = "Save leader shortcuts documentation to file" })
+
+-- Leader shortcuts usage tracker
+local tracker = require("usage_tracker")
+tracker.setup()
+
+vim.api.nvim_create_user_command("LeaderStats", function()
+  tracker.show_stats()
+end, { desc = "Show leader shortcuts usage statistics" })
+
+vim.api.nvim_create_user_command("LeaderStatsExport", function(opts)
+  local format = opts.args ~= "" and opts.args or "csv"
+  tracker.export(format)
+end, { nargs = "?", desc = "Export usage stats (csv or json)" })
+
+vim.api.nvim_create_user_command("LeaderStatsClear", function()
+  tracker.clear()
+end, { desc = "Clear all usage statistics" })
+
+vim.api.nvim_create_user_command("LeaderStatsEnable", function()
+  tracker.enable()
+end, { desc = "Enable usage tracking" })
+
+vim.api.nvim_create_user_command("LeaderStatsDisable", function()
+  tracker.disable()
+end, { desc = "Disable usage tracking" })
+
+-- Save tracker data on exit
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  callback = function()
+    tracker.cleanup()
+  end,
+})

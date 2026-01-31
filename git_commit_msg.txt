@@ -1,3 +1,6 @@
+# type(area)!: summary
+# common types: fix, feat, build, chore, ci, docs, style, refactor, perf, test
+
 # If applied, this commit will...
 
 # Explain why, what and how this change is being made

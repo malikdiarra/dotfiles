@@ -12,6 +12,7 @@ then
   stow --no-folding i3
   stow --no-folding tmux
   stow --no-folding starship
+  stow --no-folding utils
 else
   echo "Stow is not available, Skipping deployment"
 fi

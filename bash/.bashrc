@@ -60,17 +60,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+
+if [ -d "$HOME/bin" ]; then
+  export PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/.local/bin:$PATH" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
 export EDITOR=nvim
 
 eval "$(starship init bash)"
-
-folder_size() {
-  du -h --summarize $@
-}
-
-if [ -d ~/bin ]; then
-  export PATH=$PATH:~/bin
-fi
 
 alias append-file="nvim '+normal Go'"
 
@@ -79,7 +78,3 @@ for f in ~/.bashrc.d/*.bashrc; do
     source "$f"
   fi
 done
-
-if [ -n "${ADDITIONAL_PS1}" ]; then
-  PS1="${ADDITIONAL_PS1} $PS1"
-fi

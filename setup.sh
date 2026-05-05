@@ -13,6 +13,7 @@ then
   stow --no-folding tmux
   stow --no-folding starship
   stow --no-folding utils
+  stow --no-folding zsh
 else
   echo "Stow is not available, Skipping deployment"
 fi

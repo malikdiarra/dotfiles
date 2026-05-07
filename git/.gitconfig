@@ -3,7 +3,7 @@
 	email = malik.diarra@gmail.com
 
 [commit]
-	template = ~/.dotfiles/git_commit_msg.txt
+	template = ~/.config/git/commit_template
 	verbose = true
 
 [alias]

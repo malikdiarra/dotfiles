@@ -20,7 +20,6 @@ alias la='ls -AG'
 alias l='ls -CFG'
 alias append-file="nvim '+normal Go'"
 
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/.local/bin:$PATH" ]] && export PATH="$HOME/.local/bin:$PATH"
 
 # homebrew (use zsh-native completion instead of bash_completion)

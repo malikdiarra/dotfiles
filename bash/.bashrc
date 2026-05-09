@@ -61,9 +61,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-if [ -d "$HOME/bin" ]; then
-  export PATH="$HOME/bin:$PATH"
-fi
 if [ -d "$HOME/.local/bin:$PATH" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi

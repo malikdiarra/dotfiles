@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 PARENT=$1
 
 if [ "${PARENT}" == "" ]; then

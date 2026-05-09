@@ -23,7 +23,7 @@
 	fixup = !git_fixup
 	squash = !git_squash
 	show-files = !git-show-files
-	reapply = !GIT_EDITOR=/usr/bin/true git rebase -i
+	reapply = !git_reapply
 	undo = reset HEAD^ --
 	rename-branch = branch -m
 	diff-parent = !git diff $(gt parent 2>/dev/null || git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed \"s@^refs/remotes/origin/@@\" || echo main)

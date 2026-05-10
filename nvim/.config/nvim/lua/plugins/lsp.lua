@@ -157,8 +157,3 @@ require("lspconfig").vtsls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-
-require("lspconfig").prettier.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}

@@ -229,8 +229,6 @@ wk.add({
 -- save
 wk.add({
   { "s", ":w<cr>" },
-  { ":w", ":echo \"No!\"<cr>" },
-  { ":wq", ":echo \"Use ZZ\"<cr>" },
 })
 
 -- move visual block

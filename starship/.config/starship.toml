@@ -2,6 +2,9 @@ format = """\
 [\\[](fg:blue)[$time](fg:red)[\\]](fg:blue)\
 [\\[](fg:blue)[$username@$hostname:$directory](fg:red)[\\]](fg:blue)\
 ${custom.git_custom}\
+[$cmd_duration](fg:yellow)\
+[$jobs](fg:yellow)\
+[$status](fg:red)\
 [$character](fg:green)\
 """
 
@@ -36,8 +39,21 @@ command = '''
 branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null);
 hash=$(git rev-parse --short HEAD 2>/dev/null);
 repo=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)");
-echo ":$branch($hash):$repo"
+echo ":($branch)($hash):($repo)"
 '''
+
+[jobs]
+format = '[$symbol$number]($style)'
+symbol = '✦'
+threshold = 1
+
+[cmd_duration]
+min_time = 2_000
+format = '[⏱ $duration]($style)'
+
+[status]
+disabled = false
+format = '[✗ $status]($style)'
 
 [character]
 success_symbol = '\$'

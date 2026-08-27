@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 return {
-  -- basic defaults
+  audible_bell = "Disabled",
   color_scheme = "Catppuccin Mocha",
   font_size = 14.0,
 

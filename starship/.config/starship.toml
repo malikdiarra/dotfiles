@@ -1,7 +1,7 @@
 format = """\
 [\\[](fg:blue)[$time](fg:red)[\\]](fg:blue)\
 [\\[](fg:blue)[$username@$hostname:$directory](fg:red)[\\]](fg:blue)\
-${custom.git_custom}\
+([\\[](fg:blue)[$git_branch$git_commit:${custom.git_dir}$git_state$git_status](fg:green)[\\]](fg:blue))\
 [$cmd_duration](fg:yellow)\
 [$jobs](fg:yellow)\
 [$status](fg:red)\
@@ -29,18 +29,23 @@ truncation_length = 0
 
 [custom.git_dir]
 when = "git rev-parse --is-inside-work-tree 2>/dev/null"
-format = "$output"
+format = '\($output\)'
 command = 'basename "$(git rev-parse --show-toplevel 2>/dev/null)"'
 
-[custom.git_custom]
-when = "git rev-parse --is-inside-work-tree 2>/dev/null"
-format = "[\\[](fg:blue)[$output](fg:green)[\\]](fg:blue)${custom.git_dir.output}"
-command = '''
-branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null);
-hash=$(git rev-parse --short HEAD 2>/dev/null);
-repo=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)");
-echo ":($branch)($hash):($repo)"
-'''
+[git_branch]
+format = '\($symbol$branch\)'
+symbol = " "
+
+[git_commit]
+format = '\($hash\)'
+commit_hash_length = 7
+only_detached = false
+
+[git_state]
+format = '\($state( $progress_current/$progress_total)\)'
+
+[git_status]
+format = '\($all_status$ahead_behind\)'
 
 [jobs]
 format = '[$symbol$number]($style)'
